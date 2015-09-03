@@ -1,17 +1,16 @@
 //
-//  DCKitTests.swift
-//  DCKitTests
+//  DCKitColorTests.swift
+//  DCKit
 //
-//  Created by Vladimir Kolbas on 9/1/15.
+//  Created by Vladimir Kolbas on 9/3/15.
 //  Copyright (c) 2015 Vladimir Kolbas. All rights reserved.
 //
 
 import UIKit
 import XCTest
-import DCKit
 
-class DCKitTests: XCTestCase {
-    
+class DCKitColorTests: XCTestCase {
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,19 +20,19 @@ class DCKitTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testIsIphone() {
-        // This is an example of a functional test case.
-        XCTAssert(UIDevice.currentDevice().dc_deviceIsIphone, "Pass")
+
+    func testColor() {
+        
+        let redFromHex = UIColor(dc_hexValue: 0xff0000)
+        
+        XCTAssert(redFromHex == UIColor.redColor(), "Pass")
     }
-    
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
-            dc_delay(10.0, { () -> () in
-                print("Finished")
-            })
+            // Put the code you want to measure the time of here.
         }
     }
-    
+
 }

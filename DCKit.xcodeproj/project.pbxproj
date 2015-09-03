@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D12BEAC1B9894E600069310 /* DCKitColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D12BEAB1B9894E600069310 /* DCKitColorTests.swift */; };
 		7D8610311B95AC720016FA87 /* DCKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D8610301B95AC720016FA87 /* DCKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D8610371B95AC720016FA87 /* DCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D86102B1B95AC720016FA87 /* DCKit.framework */; };
 		7D86103E1B95AC720016FA87 /* DCKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86103D1B95AC720016FA87 /* DCKitTests.swift */; };
@@ -26,6 +27,7 @@
 		7D86106E1B95C17D0016FA87 /* NSDate+DCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86106D1B95C17D0016FA87 /* NSDate+DCExtension.swift */; };
 		7D8610701B95C2490016FA87 /* DCRandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86106F1B95C2490016FA87 /* DCRandomNumber.swift */; };
 		7D8610721B95C6320016FA87 /* UIView+DCFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8610711B95C6320016FA87 /* UIView+DCFrame.swift */; };
+		7DB899C01B95EAEA00828DDD /* DevicesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB899BF1B95EAEA00828DDD /* DevicesTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D12BEAB1B9894E600069310 /* DCKitColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCKitColorTests.swift; sourceTree = "<group>"; };
 		7D86102B1B95AC720016FA87 /* DCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D86102F1B95AC720016FA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D8610301B95AC720016FA87 /* DCKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCKit.h; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		7D86106D1B95C17D0016FA87 /* NSDate+DCExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+DCExtension.swift"; sourceTree = "<group>"; };
 		7D86106F1B95C2490016FA87 /* DCRandomNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCRandomNumber.swift; sourceTree = "<group>"; };
 		7D8610711B95C6320016FA87 /* UIView+DCFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+DCFrame.swift"; sourceTree = "<group>"; };
+		7DB899BF1B95EAEA00828DDD /* DevicesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				7D86103D1B95AC720016FA87 /* DCKitTests.swift */,
+				7D12BEAB1B9894E600069310 /* DCKitColorTests.swift */,
+				7DB899BF1B95EAEA00828DDD /* DevicesTest.swift */,
 				7D86103B1B95AC720016FA87 /* Supporting Files */,
 			);
 			path = DCKitTests;
@@ -281,6 +287,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D86103E1B95AC720016FA87 /* DCKitTests.swift in Sources */,
+				7D12BEAC1B9894E600069310 /* DCKitColorTests.swift in Sources */,
+				7DB899C01B95EAEA00828DDD /* DevicesTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +474,7 @@
 				7D8610431B95AC720016FA87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D8610441B95AC720016FA87 /* Build configuration list for PBXNativeTarget "DCKitTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +483,7 @@
 				7D8610461B95AC720016FA87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
