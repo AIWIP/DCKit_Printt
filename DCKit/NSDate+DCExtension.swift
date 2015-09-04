@@ -153,6 +153,16 @@ public extension NSDate {
         return dc_numberOfUnits(NSCalendarUnit.CalendarUnitDay, inLargerUnit: NSCalendarUnit.CalendarUnitYear).ordinal
     }
     
+    /** Returns input date with HH:MM:SS reset to it's midnight, eg. 21/9/2015 21:21:21 -> 21/9/2015 00:00:00 */
+    public func dc_normalizedDate() -> NSDate {
+        let flags: NSCalendarUnit = .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        calendar.timeZone = NSTimeZone(abbreviation: "UTC")!
+        
+        let components = calendar.components(flags, fromDate: self)
+        return calendar.dateFromComponents(components)!
+    }
+    
 }
 
 public extension NSDate {
