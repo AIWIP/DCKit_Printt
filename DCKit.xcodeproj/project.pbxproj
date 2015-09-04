@@ -27,6 +27,8 @@
 		7D86106E1B95C17D0016FA87 /* NSDate+DCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86106D1B95C17D0016FA87 /* NSDate+DCExtension.swift */; };
 		7D8610701B95C2490016FA87 /* DCRandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86106F1B95C2490016FA87 /* DCRandomNumber.swift */; };
 		7D8610721B95C6320016FA87 /* UIView+DCFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8610711B95C6320016FA87 /* UIView+DCFrame.swift */; };
+		7DA8B0241B9986B600D952A2 /* String+DCFontHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8B0231B9986B600D952A2 /* String+DCFontHeight.swift */; };
+		7DA8B0261B9986DB00D952A2 /* NSString+DCFontHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8B0251B9986DB00D952A2 /* NSString+DCFontHeight.swift */; };
 		7DB899C01B95EAEA00828DDD /* DevicesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB899BF1B95EAEA00828DDD /* DevicesTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		7D86106D1B95C17D0016FA87 /* NSDate+DCExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+DCExtension.swift"; sourceTree = "<group>"; };
 		7D86106F1B95C2490016FA87 /* DCRandomNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCRandomNumber.swift; sourceTree = "<group>"; };
 		7D8610711B95C6320016FA87 /* UIView+DCFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+DCFrame.swift"; sourceTree = "<group>"; };
+		7DA8B0231B9986B600D952A2 /* String+DCFontHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+DCFontHeight.swift"; sourceTree = "<group>"; };
+		7DA8B0251B9986DB00D952A2 /* NSString+DCFontHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+DCFontHeight.swift"; sourceTree = "<group>"; };
 		7DB899BF1B95EAEA00828DDD /* DevicesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +126,8 @@
 				7D8610611B95BCDD0016FA87 /* UIApplication+DC.swift */,
 				7D8610631B95BE1A0016FA87 /* UIColor+DC.swift */,
 				7D8610711B95C6320016FA87 /* UIView+DCFrame.swift */,
+				7DA8B0231B9986B600D952A2 /* String+DCFontHeight.swift */,
+				7DA8B0251B9986DB00D952A2 /* NSString+DCFontHeight.swift */,
 				7D86105D1B95BC810016FA87 /* NSString+EmailValidation.h */,
 				7D86105E1B95BC810016FA87 /* NSString+EmailValidation.m */,
 				7D86102E1B95AC720016FA87 /* Supporting Files */,
@@ -277,6 +283,8 @@
 				7D8610701B95C2490016FA87 /* DCRandomNumber.swift in Sources */,
 				7D86106C1B95C10A0016FA87 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				7D86105A1B95BA810016FA87 /* DCFoundation.swift in Sources */,
+				7DA8B0241B9986B600D952A2 /* String+DCFontHeight.swift in Sources */,
+				7DA8B0261B9986DB00D952A2 /* NSString+DCFontHeight.swift in Sources */,
 				7D8610641B95BE1A0016FA87 /* UIColor+DC.swift in Sources */,
 				7D86104E1B95AE070016FA87 /* UIViewController+ChildVC.swift in Sources */,
 			);
