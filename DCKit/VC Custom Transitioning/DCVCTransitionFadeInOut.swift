@@ -10,7 +10,10 @@ import UIKit
 
 public class DCVCTransitionFadeInOut: DCVCTransitionBase {
     
-    var springDamping:CGFloat = 0.9
+    public var springDamping:CGFloat                = 0.9
+    public var springVelocity:CGFloat               = 8
+    public var durationAppearing:NSTimeInterval     = 1
+    public var durationDissappearing:NSTimeInterval = 1
     
     override public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
@@ -28,10 +31,10 @@ public class DCVCTransitionFadeInOut: DCVCTransitionBase {
 
         toView.alpha = 0
         
-        UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: 8, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+        UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
             fromView.alpha = 0
         },completion: { (finished) -> Void in
-            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: self.springDamping, initialSpringVelocity: 8, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: self.springDamping, initialSpringVelocity: self.springVelocity, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
                 toView.alpha = 1
             },completion: { (finished) -> Void in
                 fromView.removeFromSuperview()
@@ -47,9 +50,9 @@ public class DCVCTransitionFadeInOut: DCVCTransitionBase {
         
         switch transitionType {
         case .Appear:
-            duration = 0.5
+            duration = durationAppearing
         case .Dissappear:
-            duration = 0.4
+            duration = durationDissappearing
         }
         return duration
     }

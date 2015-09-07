@@ -10,9 +10,10 @@ import UIKit
 
 public class DCVCTransitionModal: DCVCTransitionBase {
    
-    var springDamping:CGFloat                = 1
-    var durationAppearing:NSTimeInterval     = 1
-    var durationDissappearing:NSTimeInterval = 1
+    public var springDamping:CGFloat                = 1
+    public var springVelocity:CGFloat               = 5
+    public var durationAppearing:NSTimeInterval     = 1
+    public var durationDissappearing:NSTimeInterval = 1
 
     
     override public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
@@ -41,7 +42,7 @@ public class DCVCTransitionModal: DCVCTransitionBase {
             
             toView.frame.offset(dx: 0, dy: containerView.frame.height)
             
-            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: 5, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
                 
                 toView.frame = toViewFinalFrame
                 
@@ -58,7 +59,7 @@ public class DCVCTransitionModal: DCVCTransitionBase {
             
             let finalAnimationFrame = fromViewSnapshot.frame.rectByOffsetting(dx: 0, dy: containerView.frame.height)
             
-            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
                 
                 fromViewSnapshot.frame = finalAnimationFrame
                 

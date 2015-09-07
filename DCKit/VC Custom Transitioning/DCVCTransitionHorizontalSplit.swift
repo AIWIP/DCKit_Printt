@@ -9,6 +9,11 @@
 import UIKit
 
 public class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
+    
+    public var springDamping:CGFloat                = 1
+    public var springVelocity:CGFloat               = 5
+    public var durationAppearing:NSTimeInterval     = 0.4
+    public var durationDissappearing:NSTimeInterval = 0.4
 
     override public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
@@ -50,7 +55,7 @@ public class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
             containerView.addSubview(leftSnapshot)
             containerView.addSubview(rightSnapshot)
             
-            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
                 leftSnapshot.dc_x -= leftSnapshot.dc_width
                 rightSnapshot.dc_x += rightSnapshot.dc_width
                 toView.transform = CGAffineTransformIdentity
@@ -93,7 +98,7 @@ public class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
             containerView.addSubview(leftSnapshot)
             containerView.addSubview(rightSnapshot)
             
-            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
                 leftSnapshot.dc_x = 0
                 rightSnapshot.dc_x = containerView.dc_width/2
                 fromViewSnapshot.transform = CGAffineTransformMakeScale(0.8, 0.8)
@@ -118,9 +123,9 @@ public class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
         
         switch transitionType {
         case .Appear:
-            duration = 0.4
+            duration = durationAppearing
         case .Dissappear:
-            duration = 0.4
+            duration = durationDissappearing
         }
         return duration
     }

@@ -9,8 +9,13 @@
 
 public class DCVCTransitionModalScaling: DCVCTransitionBase {
     
-    var springDamping:CGFloat  = 0.9
-    var scalingToViewVCEnabled = true
+    public var scalingToViewVCEnabled               = true
+    public var springDamping:CGFloat                = 0.9
+    public var springVelocity:CGFloat               = 5
+    public var durationAppearing:NSTimeInterval     = 0.4
+    public var durationDissappearing:NSTimeInterval = 0.4
+
+    
     
     override public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
@@ -44,7 +49,7 @@ public class DCVCTransitionModalScaling: DCVCTransitionBase {
             
             toViewSnapshot.frame.offset(dx: 0, dy: containerView.frame.height)
             
-            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: 5, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
                 
                 toViewSnapshot.frame = toViewFinalFrame
                 fromViewSnapshot.alpha = 0
@@ -67,7 +72,7 @@ public class DCVCTransitionModalScaling: DCVCTransitionBase {
                 toViewSnapshot.transform = CGAffineTransformMakeScale(0.9, 0.9)
             }
             
-            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: 5, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
                 
                 fromViewSnapshot.frame.offset(dx: 0, dy: containerView.frame.height)
                 toViewSnapshot.alpha = 1
@@ -89,9 +94,9 @@ public class DCVCTransitionModalScaling: DCVCTransitionBase {
         
         switch transitionType{
         case .Appear:
-            duration = 0.6
+            duration = durationAppearing
         case .Dissappear:
-            duration = 0.5
+            duration = durationDissappearing
         }
         return duration
     }
