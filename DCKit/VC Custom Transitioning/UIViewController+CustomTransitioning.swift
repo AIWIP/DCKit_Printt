@@ -19,7 +19,7 @@ private class DCCustomTransitioningHelper : NSObject {
 }
 
 
-extension UIViewController {
+public extension UIViewController {
     
     /** Animation object which will be used when performing custom transitioning. Used often for appearing animations.
     Example: When UIViewController is pushed to UINavigationController stack
