@@ -30,6 +30,12 @@
 		7DA8B0241B9986B600D952A2 /* String+DCFontHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8B0231B9986B600D952A2 /* String+DCFontHeight.swift */; };
 		7DA8B0261B9986DB00D952A2 /* NSString+DCFontHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8B0251B9986DB00D952A2 /* NSString+DCFontHeight.swift */; };
 		7DB899C01B95EAEA00828DDD /* DevicesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB899BF1B95EAEA00828DDD /* DevicesTest.swift */; };
+		CFD076E91B9D795E00FE020E /* DCVCTransitionFadeInOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD076E21B9D795E00FE020E /* DCVCTransitionFadeInOut.swift */; };
+		CFD076EA1B9D795E00FE020E /* DCVCTransitionHorizontalSplit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD076E31B9D795E00FE020E /* DCVCTransitionHorizontalSplit.swift */; };
+		CFD076EB1B9D795E00FE020E /* DCVCTransitionModalScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD076E41B9D795E00FE020E /* DCVCTransitionModalScaling.swift */; };
+		CFD076EC1B9D795E00FE020E /* DCVCTransitionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD076E51B9D795E00FE020E /* DCVCTransitionModal.swift */; };
+		CFD076EE1B9D795E00FE020E /* DCVCTransitionBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD076E71B9D795E00FE020E /* DCVCTransitionBase.swift */; };
+		CFD076EF1B9D795E00FE020E /* UIViewController+CustomTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD076E81B9D795E00FE020E /* UIViewController+CustomTransitioning.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +75,12 @@
 		7DA8B0231B9986B600D952A2 /* String+DCFontHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+DCFontHeight.swift"; sourceTree = "<group>"; };
 		7DA8B0251B9986DB00D952A2 /* NSString+DCFontHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+DCFontHeight.swift"; sourceTree = "<group>"; };
 		7DB899BF1B95EAEA00828DDD /* DevicesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesTest.swift; sourceTree = "<group>"; };
+		CFD076E21B9D795E00FE020E /* DCVCTransitionFadeInOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCVCTransitionFadeInOut.swift; sourceTree = "<group>"; };
+		CFD076E31B9D795E00FE020E /* DCVCTransitionHorizontalSplit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCVCTransitionHorizontalSplit.swift; sourceTree = "<group>"; };
+		CFD076E41B9D795E00FE020E /* DCVCTransitionModalScaling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCVCTransitionModalScaling.swift; sourceTree = "<group>"; };
+		CFD076E51B9D795E00FE020E /* DCVCTransitionModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCVCTransitionModal.swift; sourceTree = "<group>"; };
+		CFD076E71B9D795E00FE020E /* DCVCTransitionBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCVCTransitionBase.swift; sourceTree = "<group>"; };
+		CFD076E81B9D795E00FE020E /* UIViewController+CustomTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomTransitioning.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +123,7 @@
 		7D86102D1B95AC720016FA87 /* DCKit */ = {
 			isa = PBXGroup;
 			children = (
+				CFD076E11B9D795E00FE020E /* VC Custom Transitioning */,
 				7D8610301B95AC720016FA87 /* DCKit.h */,
 				7D86105B1B95BBE10016FA87 /* Array+DC.swift */,
 				7D8610471B95AD3F0016FA87 /* DCRevealVC.swift */,
@@ -160,6 +173,19 @@
 				7D86103C1B95AC720016FA87 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFD076E11B9D795E00FE020E /* VC Custom Transitioning */ = {
+			isa = PBXGroup;
+			children = (
+				CFD076E21B9D795E00FE020E /* DCVCTransitionFadeInOut.swift */,
+				CFD076E31B9D795E00FE020E /* DCVCTransitionHorizontalSplit.swift */,
+				CFD076E41B9D795E00FE020E /* DCVCTransitionModalScaling.swift */,
+				CFD076E51B9D795E00FE020E /* DCVCTransitionModal.swift */,
+				CFD076E71B9D795E00FE020E /* DCVCTransitionBase.swift */,
+				CFD076E81B9D795E00FE020E /* UIViewController+CustomTransitioning.swift */,
+			);
+			path = "VC Custom Transitioning";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,16 +297,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D8610681B95BF460016FA87 /* UIDevice+DeviceTypes.swift in Sources */,
+				CFD076EB1B9D795E00FE020E /* DCVCTransitionModalScaling.swift in Sources */,
 				7D86105C1B95BBE10016FA87 /* Array+DC.swift in Sources */,
 				7D8610561B95B1A80016FA87 /* UIDevice+DC.swift in Sources */,
 				7D86106E1B95C17D0016FA87 /* NSDate+DCExtension.swift in Sources */,
+				CFD076EE1B9D795E00FE020E /* DCVCTransitionBase.swift in Sources */,
 				7D8610601B95BC810016FA87 /* NSString+EmailValidation.m in Sources */,
 				7D8610721B95C6320016FA87 /* UIView+DCFrame.swift in Sources */,
 				7D8610661B95BF260016FA87 /* UIResponder+KeyboardCache.swift in Sources */,
+				CFD076E91B9D795E00FE020E /* DCVCTransitionFadeInOut.swift in Sources */,
+				CFD076EC1B9D795E00FE020E /* DCVCTransitionModal.swift in Sources */,
 				7D8610481B95AD3F0016FA87 /* DCRevealVC.swift in Sources */,
 				7D8610621B95BCDD0016FA87 /* UIApplication+DC.swift in Sources */,
 				7D86106A1B95C0C90016FA87 /* UICollectionViewCell+ReuseIdentifier.swift in Sources */,
 				7D8610701B95C2490016FA87 /* DCRandomNumber.swift in Sources */,
+				CFD076EA1B9D795E00FE020E /* DCVCTransitionHorizontalSplit.swift in Sources */,
+				CFD076EF1B9D795E00FE020E /* UIViewController+CustomTransitioning.swift in Sources */,
 				7D86106C1B95C10A0016FA87 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				7D86105A1B95BA810016FA87 /* DCFoundation.swift in Sources */,
 				7DA8B0241B9986B600D952A2 /* String+DCFontHeight.swift in Sources */,
