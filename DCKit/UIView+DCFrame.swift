@@ -60,9 +60,9 @@ public extension UIView {
             return center.x
         }
         set {
-            var _center = center
-            center.x = newValue
-            center = _center
+            var _center = self.center
+            _center.x = newValue
+            self.center = _center
         }
     }
     
@@ -72,7 +72,7 @@ public extension UIView {
         }
         set {
             var _center = center
-            center.y = newValue
+            _center.y = newValue
             center = _center
         }
     }
@@ -91,7 +91,7 @@ public extension UIView {
             return frame.origin.y + frame.size.height
         }
         set {
-            dc_height = dc_yBottom - dc_y
+            dc_height = newValue - dc_y
         }
     }
     
