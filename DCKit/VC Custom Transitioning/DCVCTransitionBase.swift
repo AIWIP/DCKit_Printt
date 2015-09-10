@@ -30,7 +30,7 @@ public class DCVCTransitionBase:NSObject, UIViewControllerAnimatedTransitioning 
 
     }
     
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         
         assert(true, "animateTransition: should be handled by subclass of BaseAnimation");
         

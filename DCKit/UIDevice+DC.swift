@@ -21,7 +21,7 @@ public extension UIDevice {
     public var dc_isIphone4OrLess:Bool {
         let screenSize = UIScreen.mainScreen().bounds.size
         
-        var height = max(screenSize.width, screenSize.height)
+        let height = max(screenSize.width, screenSize.height)
         
         if height < 568.0 {
             return true
@@ -32,7 +32,7 @@ public extension UIDevice {
     public var dc_isIphone5OrIpodTouch:Bool {
         let screenSize = UIScreen.mainScreen().bounds.size
         
-        var height = max(screenSize.width, screenSize.height)
+        let height = max(screenSize.width, screenSize.height)
         
         if height == 568.0 {
             return true
@@ -44,7 +44,7 @@ public extension UIDevice {
     public var dc_isIphone6:Bool {
         let screenSize = UIScreen.mainScreen().bounds.size
         
-        var height = max(screenSize.width, screenSize.height)
+        let height = max(screenSize.width, screenSize.height)
         
         if height == 667.0 {
             return true
@@ -55,7 +55,7 @@ public extension UIDevice {
     public var dc_isIphone6OrNewer:Bool {
         let screenSize = UIScreen.mainScreen().bounds.size
         
-        var height = max(screenSize.width, screenSize.height)
+        let height = max(screenSize.width, screenSize.height)
         
         if height >= 667.0 {
             return true
@@ -66,7 +66,7 @@ public extension UIDevice {
     public var dc_isIphone6P:Bool {
         let screenSize = UIScreen.mainScreen().bounds.size
         
-        var height = max(screenSize.width, screenSize.height)
+        let height = max(screenSize.width, screenSize.height)
         
         if height == 736.0 {
             return true

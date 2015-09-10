@@ -17,7 +17,9 @@ public class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
 
     override public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-        let containerView = transitionContext.containerView()
+        guard let containerView = transitionContext.containerView() else {
+            fatalError("Containerview should be present")
+        }
         
         let fromViewVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         let toViewVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
@@ -25,10 +27,10 @@ public class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
         let toView = toViewVC.view
         
         let fromView = fromViewVC.view
-        fromView.setTranslatesAutoresizingMaskIntoConstraints(true)
+        fromView.translatesAutoresizingMaskIntoConstraints = true
 
         
-        let toViewFinalFrame = transitionContext.finalFrameForViewController(toViewVC)
+//        let toViewFinalFrame = transitionContext.finalFrameForViewController(toViewVC)
         
         
         let animationDuration = self.transitionDuration(transitionContext)
@@ -117,7 +119,7 @@ public class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
         
     }
     
-    override public func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    override public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         
         var duration:NSTimeInterval = 0
         

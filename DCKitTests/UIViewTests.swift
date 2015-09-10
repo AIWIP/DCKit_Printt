@@ -35,7 +35,7 @@ class UIViewTests: XCTestCase {
     }
 
     func testCenterMove() {
-        var view = initialView()
+        let view = initialView()
         view.dc_centerX = 100
         view.dc_centerY = 100
         

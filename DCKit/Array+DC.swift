@@ -18,7 +18,7 @@ extension Array {
         
         
         var indexToRemove:Int?
-        for (index,eachElement) in enumerate(self) {
+        for (index,eachElement) in self.enumerate() {
             if eachElement as! T == obj {
                 indexToRemove = index
             }
@@ -31,8 +31,8 @@ extension Array {
     }
     
     
-    func dc_find (includedElement: T -> Bool) -> Int? {
-        for (idx, element) in enumerate(self) {
+    func dc_find (includedElement: Element -> Bool) -> Int? {
+        for (idx, element) in self.enumerate() {
             if includedElement(element) {
                 return idx
             }

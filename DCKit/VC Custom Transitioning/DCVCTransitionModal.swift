@@ -18,14 +18,16 @@ public class DCVCTransitionModal: DCVCTransitionBase {
     
     override public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-        let containerView = transitionContext.containerView()
+        guard let containerView = transitionContext.containerView() else {
+            fatalError("Containerview should be present")
+        }
         
         let fromViewVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         let fromView = fromViewVC.view
         
         let toViewVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         let toView = toViewVC.view
-        toView.setTranslatesAutoresizingMaskIntoConstraints(true)
+        toView.translatesAutoresizingMaskIntoConstraints = true
         
         let toViewFinalFrame = transitionContext.finalFrameForViewController(toViewVC)
         
@@ -40,7 +42,7 @@ public class DCVCTransitionModal: DCVCTransitionBase {
             containerView.addSubview(fromViewSnapshot)
             containerView.addSubview(toView)
             
-            toView.frame.offset(dx: 0, dy: containerView.frame.height)
+            toView.frame.offsetInPlace(dx: 0, dy: containerView.frame.height)
             
             UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
                 
@@ -57,7 +59,7 @@ public class DCVCTransitionModal: DCVCTransitionBase {
             
             toView.frame = toViewFinalFrame
             
-            let finalAnimationFrame = fromViewSnapshot.frame.rectByOffsetting(dx: 0, dy: containerView.frame.height)
+            let finalAnimationFrame = fromViewSnapshot.frame.offsetBy(dx: 0, dy: containerView.frame.height)
             
             UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
                 
@@ -71,7 +73,7 @@ public class DCVCTransitionModal: DCVCTransitionBase {
         
     }
     
-    override public func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    override public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         
         var duration:NSTimeInterval = 0
         

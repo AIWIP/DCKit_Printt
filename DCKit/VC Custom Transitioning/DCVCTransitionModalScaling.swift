@@ -19,14 +19,16 @@ public class DCVCTransitionModalScaling: DCVCTransitionBase {
     
     override public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-        let containerView = transitionContext.containerView()
+        guard let containerView = transitionContext.containerView()else {
+            fatalError("Containerview should be present")
+        }
         
         let fromViewVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         let fromView = fromViewVC.view
         
         let toViewVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         let toView = toViewVC.view
-        toView.setTranslatesAutoresizingMaskIntoConstraints(true)
+        toView.translatesAutoresizingMaskIntoConstraints = true
         
         let toViewFinalFrame = transitionContext.finalFrameForViewController(toViewVC)
         
@@ -47,7 +49,7 @@ public class DCVCTransitionModalScaling: DCVCTransitionBase {
             containerView.addSubview(toViewSnapshot)
 
             
-            toViewSnapshot.frame.offset(dx: 0, dy: containerView.frame.height)
+            toViewSnapshot.frame.offsetInPlace(dx: 0, dy: containerView.frame.height)
             
             UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
                 
@@ -74,7 +76,7 @@ public class DCVCTransitionModalScaling: DCVCTransitionBase {
             
             UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
                 
-                fromViewSnapshot.frame.offset(dx: 0, dy: containerView.frame.height)
+                fromViewSnapshot.frame.offsetInPlace(dx: 0, dy: containerView.frame.height)
                 toViewSnapshot.alpha = 1
                 toViewSnapshot.transform = CGAffineTransformIdentity
                 
@@ -88,7 +90,7 @@ public class DCVCTransitionModalScaling: DCVCTransitionBase {
         
     }
     
-    override public func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    override public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         
         var duration:NSTimeInterval = 0
         

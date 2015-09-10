@@ -51,7 +51,7 @@ public extension UIViewController {
         
         if helper == nil {
             helper = DCCustomTransitioningHelper()
-            objc_setAssociatedObject(self, &kCustomTransitioningHelperID, helper, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &kCustomTransitioningHelperID, helper, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         return helper!
     }

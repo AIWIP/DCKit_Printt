@@ -17,7 +17,9 @@ public class DCVCTransitionFadeInOut: DCVCTransitionBase {
     
     override public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-        let containerView = transitionContext.containerView()
+        guard let containerView = transitionContext.containerView() else {
+            fatalError("Containerview should be present")
+        }
         
         let fromViewVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         let toViewVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
@@ -44,7 +46,7 @@ public class DCVCTransitionFadeInOut: DCVCTransitionBase {
         
     }
     
-    override public func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    override public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         
         var duration:NSTimeInterval = 0
         

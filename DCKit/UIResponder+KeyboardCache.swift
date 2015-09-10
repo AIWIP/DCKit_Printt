@@ -19,7 +19,7 @@ public extension UIResponder {
     }
     
     
-    public class func dc_cacheKeyboard(#onNextRunloop:Bool) {
+    public class func dc_cacheKeyboard(onNextRunloop onNextRunloop:Bool) {
         
         if hasAlreadyCachedKeyboard == false {
             hasAlreadyCachedKeyboard = true

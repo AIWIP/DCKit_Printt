@@ -38,7 +38,7 @@ public extension UIViewController {
     
     
     
-    public func dc_transitionWithSpring(#fromVC:UIViewController, toVC:UIViewController, animationDuration:Double, springValue:Double, velocity:Double, prepareLayoutBlock:(()->Void)?, animationBlock:(fromViewSnaphot:UIView, toView:UIView)->Void, completionBlock:((Bool)->Void)?) {
+    public func dc_transitionWithSpring(fromVC fromVC:UIViewController, toVC:UIViewController, animationDuration:Double, springValue:Double, velocity:Double, prepareLayoutBlock:(()->Void)?, animationBlock:(fromViewSnaphot:UIView, toView:UIView)->Void, completionBlock:((Bool)->Void)?) {
         
         let fromViewSnaphot = fromVC.view.snapshotViewAfterScreenUpdates(false)
         fromViewSnaphot.frame = fromVC.view.frame

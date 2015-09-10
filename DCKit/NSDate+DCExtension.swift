@@ -29,10 +29,10 @@ public extension NSDate {
     
     
     public func dc_isSameDay(otherDate:NSDate) -> Bool {
-        var calendarFlags:NSCalendarUnit = .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay
+        let calendarFlags:NSCalendarUnit = [.Year, .Month, .Day]
         
-        var date1Components = calendar.components(calendarFlags, fromDate: self)
-        var date2Components = calendar.components(calendarFlags, fromDate: otherDate)
+        let date1Components = calendar.components(calendarFlags, fromDate: self)
+        let date2Components = calendar.components(calendarFlags, fromDate: otherDate)
         
         if date1Components.year == date2Components.year && date1Components.month == date2Components.month && date1Components.day == date2Components.day {
             return true
@@ -63,49 +63,49 @@ public extension NSDate {
     
     public func dc_dateByAddingDays(days:Int) -> NSDate {
         
-        var dateCompnents = NSDateComponents()
+        let dateCompnents = NSDateComponents()
         dateCompnents.day = days
-        let newDate = calendar.dateByAddingComponents(dateCompnents, toDate: self, options: NSCalendarOptions.allZeros)
+        let newDate = calendar.dateByAddingComponents(dateCompnents, toDate: self, options: NSCalendarOptions())
         return newDate!
     }
     
     public func dc_dateByAddingMonths(months:Int) -> NSDate {
         
-        var dateCompnents = NSDateComponents()
+        let dateCompnents = NSDateComponents()
         dateCompnents.month = months
-        let newDate = calendar.dateByAddingComponents(dateCompnents, toDate: self, options: NSCalendarOptions.allZeros)
+        let newDate = calendar.dateByAddingComponents(dateCompnents, toDate: self, options: NSCalendarOptions())
         return newDate!
     }
     
     
     public func dc_era() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitEra).era
+        return dc_numberOfUnits(NSCalendarUnit.Era).era
     }
     
     public func dc_year() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitYear).year
+        return dc_numberOfUnits(NSCalendarUnit.Year).year
     }
     
     public func dc_month() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitMonth).month
+        return dc_numberOfUnits(NSCalendarUnit.Month).month
     }
     
     public func dc_day() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitDay).day
+        return dc_numberOfUnits(NSCalendarUnit.Day).day
     }
     
     public func dc_hour() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitHour).hour
+        return dc_numberOfUnits(NSCalendarUnit.Hour).hour
     }
     
     public func dc_minute() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitMinute).minute
+        return dc_numberOfUnits(NSCalendarUnit.Minute).minute
     }
     
     /** If you pass nil as parameter, component will be ignored */
     public func dc_dateWithComponents(year:Int?=nil, month:Int?=nil, day:Int?=nil, hour:Int?=nil, minute:Int?=nil, second:Int?=nil) -> NSDate? {
         
-        let components = calendar.components(NSCalendarUnit.allZeros, fromDate: self)
+        let components = calendar.components(NSCalendarUnit(), fromDate: self)
         components.year     = year ?? components.year
         components.month    = month ?? components.month
         components.day      = day ?? components.day
@@ -121,41 +121,41 @@ public extension NSDate {
     
     
     public func dc_second() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitSecond).second
+        return dc_numberOfUnits(NSCalendarUnit.Second).second
     }
     
     public func dc_weekday() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitWeekday).weekday
+        return dc_numberOfUnits(NSCalendarUnit.Weekday).weekday
     }
     
     public func dc_weekdayOrdinal() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitWeekdayOrdinal).weekdayOrdinal
+        return dc_numberOfUnits(NSCalendarUnit.WeekdayOrdinal).weekdayOrdinal
     }
     
     public func dc_weekOfMonth() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitWeekOfMonth).weekOfMonth
+        return dc_numberOfUnits(NSCalendarUnit.WeekOfMonth).weekOfMonth
     }
 
     public func dc_weekOfYear() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitWeekOfYear).weekOfYear
+        return dc_numberOfUnits(NSCalendarUnit.WeekOfYear).weekOfYear
     }
     
     
     public func dc_daysInMonth() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitDay, inLargerUnit: NSCalendarUnit.CalendarUnitMonth).length
+        return dc_numberOfUnits(NSCalendarUnit.Day, inLargerUnit: NSCalendarUnit.Month).length
     }
     
     public func dc_daysInYear() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitDay, inLargerUnit: NSCalendarUnit.CalendarUnitYear).length
+        return dc_numberOfUnits(NSCalendarUnit.Day, inLargerUnit: NSCalendarUnit.Year).length
     }
     
     public func dc_dayOfYear() -> Int {
-        return dc_numberOfUnits(NSCalendarUnit.CalendarUnitDay, inLargerUnit: NSCalendarUnit.CalendarUnitYear).ordinal
+        return dc_numberOfUnits(NSCalendarUnit.Day, inLargerUnit: NSCalendarUnit.Year).ordinal
     }
     
     /** Returns input date with HH:MM:SS reset to it's midnight, eg. 21/9/2015 21:21:21 -> 21/9/2015 00:00:00 */
     public func dc_normalizedDate() -> NSDate {
-        let flags: NSCalendarUnit = .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay
+        let flags: NSCalendarUnit = [.Year, .Month, .Day]
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         calendar.timeZone = NSTimeZone(abbreviation: "UTC")!
         
@@ -170,7 +170,7 @@ public extension NSDate {
     
     public func dc_numberOfDaysBetween(secondDate:NSDate) -> Int {
         
-        let dateComponents = calendar.components(NSCalendarUnit.CalendarUnitDay, fromDate: self, toDate: secondDate, options: NSCalendarOptions.MatchFirst)
+        let dateComponents = calendar.components(NSCalendarUnit.Day, fromDate: self, toDate: secondDate, options: NSCalendarOptions.MatchFirst)
         return dateComponents.day
         
     }

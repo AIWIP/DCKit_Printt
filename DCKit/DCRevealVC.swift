@@ -68,7 +68,7 @@ public class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
 
     }
 
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -122,8 +122,8 @@ public class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
         overlayView.frame = contentNavigationController!.view.bounds
         contentNavigationController!.view.addSubview(overlayView)
         
-        let front = contentVC
-        let frame = overlayView.frame
+//        let front = contentVC
+//        let frame = overlayView.frame
         
         
         UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in

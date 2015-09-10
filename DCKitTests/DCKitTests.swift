@@ -30,7 +30,7 @@ class DCKitTests: XCTestCase {
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
-            dc_delay(10.0, { () -> () in
+            dc_delay(10.0, closure: { () -> () in
                 print("Finished")
             })
         }
