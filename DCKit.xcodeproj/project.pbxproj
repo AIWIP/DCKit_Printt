@@ -31,6 +31,8 @@
 		7DA8B0241B9986B600D952A2 /* String+DCFontHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8B0231B9986B600D952A2 /* String+DCFontHeight.swift */; };
 		7DA8B0261B9986DB00D952A2 /* NSString+DCFontHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8B0251B9986DB00D952A2 /* NSString+DCFontHeight.swift */; };
 		7DB899C01B95EAEA00828DDD /* DevicesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB899BF1B95EAEA00828DDD /* DevicesTest.swift */; };
+		CF1DA2981BBED4190033D7B7 /* NSURLRequest+DebugPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DA2961BBED4190033D7B7 /* NSURLRequest+DebugPrint.swift */; };
+		CF1DA2991BBED4190033D7B7 /* NSHTTPURLResponse+DebugPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DA2971BBED4190033D7B7 /* NSHTTPURLResponse+DebugPrint.swift */; };
 		CFD076E91B9D795E00FE020E /* DCVCTransitionFadeInOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD076E21B9D795E00FE020E /* DCVCTransitionFadeInOut.swift */; };
 		CFD076EA1B9D795E00FE020E /* DCVCTransitionHorizontalSplit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD076E31B9D795E00FE020E /* DCVCTransitionHorizontalSplit.swift */; };
 		CFD076EB1B9D795E00FE020E /* DCVCTransitionModalScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD076E41B9D795E00FE020E /* DCVCTransitionModalScaling.swift */; };
@@ -77,6 +79,8 @@
 		7DA8B0231B9986B600D952A2 /* String+DCFontHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+DCFontHeight.swift"; sourceTree = "<group>"; };
 		7DA8B0251B9986DB00D952A2 /* NSString+DCFontHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+DCFontHeight.swift"; sourceTree = "<group>"; };
 		7DB899BF1B95EAEA00828DDD /* DevicesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesTest.swift; sourceTree = "<group>"; };
+		CF1DA2961BBED4190033D7B7 /* NSURLRequest+DebugPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+DebugPrint.swift"; sourceTree = "<group>"; };
+		CF1DA2971BBED4190033D7B7 /* NSHTTPURLResponse+DebugPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSHTTPURLResponse+DebugPrint.swift"; sourceTree = "<group>"; };
 		CFD076E21B9D795E00FE020E /* DCVCTransitionFadeInOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCVCTransitionFadeInOut.swift; sourceTree = "<group>"; };
 		CFD076E31B9D795E00FE020E /* DCVCTransitionHorizontalSplit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCVCTransitionHorizontalSplit.swift; sourceTree = "<group>"; };
 		CFD076E41B9D795E00FE020E /* DCVCTransitionModalScaling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCVCTransitionModalScaling.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				7DA8B0251B9986DB00D952A2 /* NSString+DCFontHeight.swift */,
 				7D86105D1B95BC810016FA87 /* NSString+EmailValidation.h */,
 				7D86105E1B95BC810016FA87 /* NSString+EmailValidation.m */,
+				CF1DA2961BBED4190033D7B7 /* NSURLRequest+DebugPrint.swift */,
+				CF1DA2971BBED4190033D7B7 /* NSHTTPURLResponse+DebugPrint.swift */,
 				7D86102E1B95AC720016FA87 /* Supporting Files */,
 			);
 			path = DCKit;
@@ -312,7 +318,9 @@
 				7D8610661B95BF260016FA87 /* UIResponder+KeyboardCache.swift in Sources */,
 				CFD076E91B9D795E00FE020E /* DCVCTransitionFadeInOut.swift in Sources */,
 				CFD076EC1B9D795E00FE020E /* DCVCTransitionModal.swift in Sources */,
+				CF1DA2991BBED4190033D7B7 /* NSHTTPURLResponse+DebugPrint.swift in Sources */,
 				7D8610481B95AD3F0016FA87 /* DCRevealVC.swift in Sources */,
+				CF1DA2981BBED4190033D7B7 /* NSURLRequest+DebugPrint.swift in Sources */,
 				7D8610621B95BCDD0016FA87 /* UIApplication+DC.swift in Sources */,
 				7D86106A1B95C0C90016FA87 /* UICollectionViewCell+ReuseIdentifier.swift in Sources */,
 				7D8610701B95C2490016FA87 /* DCRandomNumber.swift in Sources */,
