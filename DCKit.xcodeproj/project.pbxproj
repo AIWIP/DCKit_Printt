@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		006E79931BCD531700F86EB1 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E79921BCD531700F86EB1 /* ArrayTests.swift */; settings = {ASSET_TAGS = (); }; };
+		006E79911BCD519100F86EB1 /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E79901BCD519100F86EB1 /* NSDateTests.swift */; settings = {ASSET_TAGS = (); }; };
 		7D12BEAC1B9894E600069310 /* DCKitColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D12BEAB1B9894E600069310 /* DCKitColorTests.swift */; };
 		7D8610311B95AC720016FA87 /* DCKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D8610301B95AC720016FA87 /* DCKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D8610371B95AC720016FA87 /* DCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D86102B1B95AC720016FA87 /* DCKit.framework */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		006E79921BCD531700F86EB1 /* ArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
+		006E79901BCD519100F86EB1 /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTests.swift; sourceTree = "<group>"; };
 		7D12BEAB1B9894E600069310 /* DCKitColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCKitColorTests.swift; sourceTree = "<group>"; };
 		7D86102B1B95AC720016FA87 /* DCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D86102F1B95AC720016FA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				006E79921BCD531700F86EB1 /* ArrayTests.swift */,
 				7D86103D1B95AC720016FA87 /* DCKitTests.swift */,
+				006E79901BCD519100F86EB1 /* NSDateTests.swift */,
 				7D12BEAB1B9894E600069310 /* DCKitColorTests.swift */,
 				7DB899BF1B95EAEA00828DDD /* DevicesTest.swift */,
 				7D8BD7E51B9F670100FA73AE /* UIViewTests.swift */,
@@ -347,6 +350,7 @@
 				7D86103E1B95AC720016FA87 /* DCKitTests.swift in Sources */,
 				7D12BEAC1B9894E600069310 /* DCKitColorTests.swift in Sources */,
 				7DB899C01B95EAEA00828DDD /* DevicesTest.swift in Sources */,
+				006E79911BCD519100F86EB1 /* NSDateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
