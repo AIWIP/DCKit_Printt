@@ -22,19 +22,24 @@ class EmailValidationTests: XCTestCase {
     
     func testEmailValidation() {
         
-        let email = "test@test.com" as NSString
+        let email = "ime.prezime@iz.hr" as NSString
         let email2 = "test.test@test.com" as NSString
         let email3 = "test11111.com" as NSString
-        let email4 = "1@tesst.com" as NSString
+        let email4 = "ime.prezime@decode.agency" as NSString
         let email5 = "@test.com" as NSString
-        let email6 = "1@.com" as NSString
+        let email6 = "auth@verifier.port25.com" as NSString
+        let email7 = "test@agency.agency" as NSString
+        let email8 = "m@m.io" as NSString
+        
         
         XCTAssertTrue(email.dc_isValidEmail(), "Email is not valid")
         XCTAssertTrue(email2.dc_isValidEmail(), "Email is not valid")
         XCTAssertFalse(email3.dc_isValidEmail(), "Email is valid")
         XCTAssertTrue(email4.dc_isValidEmail(), "Email is not valid")
         XCTAssertFalse(email5.dc_isValidEmail(), "Email is valid")
-        XCTAssertFalse(email6.dc_isValidEmail(), "Email is valid")
+        XCTAssertTrue(email6.dc_isValidEmail(), "Email is valid")
+        XCTAssertTrue(email7.dc_isValidEmail(), "Email is valid")
+        XCTAssertTrue(email8.dc_isValidEmail(), "Email is valid")
         
     }
     
