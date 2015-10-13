@@ -15,3 +15,5 @@ FOUNDATION_EXPORT double DCKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char DCKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <DCKit/PublicHeader.h>
+
+#import <DCKit/NSString+EmailValidation.h>

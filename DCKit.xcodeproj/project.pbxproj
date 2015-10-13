@@ -17,7 +17,7 @@
 		7D8610561B95B1A80016FA87 /* UIDevice+DC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8610551B95B1A80016FA87 /* UIDevice+DC.swift */; };
 		7D86105A1B95BA810016FA87 /* DCFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8610591B95BA810016FA87 /* DCFoundation.swift */; };
 		7D86105C1B95BBE10016FA87 /* Array+DC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86105B1B95BBE10016FA87 /* Array+DC.swift */; };
-		7D86105F1B95BC810016FA87 /* NSString+EmailValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D86105D1B95BC810016FA87 /* NSString+EmailValidation.h */; };
+		7D86105F1B95BC810016FA87 /* NSString+EmailValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D86105D1B95BC810016FA87 /* NSString+EmailValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D8610601B95BC810016FA87 /* NSString+EmailValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D86105E1B95BC810016FA87 /* NSString+EmailValidation.m */; };
 		7D8610621B95BCDD0016FA87 /* UIApplication+DC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8610611B95BCDD0016FA87 /* UIApplication+DC.swift */; };
 		7D8610641B95BE1A0016FA87 /* UIColor+DC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8610631B95BE1A0016FA87 /* UIColor+DC.swift */; };
