@@ -25,14 +25,14 @@ class NSDateTests: XCTestCase {
     
     func testIf24HourModeIsEnabled() {
         
-        let date = NSDate.dc_is24HourModeEnabled()
+        let dateIsIn12HourMode = NSDate.dc_is24HourModeEnabled()
         
         let locale24 = NSLocale.currentLocale()
         
         let dateFormat24 = NSDateFormatter.dateFormatFromTemplate("j", options: 0, locale: locale24)!
         
         if dateFormat24.rangeOfString("a") != nil {
-            XCTAssertEqual(date, false, "24 hours mode.")
+            XCTAssertEqual(dateIsIn12HourMode, false, "24 hours mode.")
         }
 
     }
