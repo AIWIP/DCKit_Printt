@@ -30,6 +30,8 @@ class ArrayTests: XCTestCase {
     
     func testRemovingObjectFromArray() {
         XCTAssertTrue(array.dc_removeObject("One"), "Array 'dc_removeObject' function isn't working properly.")
+        
+        XCTAssertFalse(array.dc_contains("One"), "Array 'dc_removeObject' function didn't remove object from the array.")
 
     }
 
