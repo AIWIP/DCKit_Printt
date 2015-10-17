@@ -35,12 +35,4 @@ class ArrayTests: XCTestCase {
 
     }
 
-    func testFindingObjectFromArray() {
-
-        let index = array.dc_find { (let element) -> Bool in
-            return element == "Three"
-        }
-        
-        XCTAssertTrue(index == 2, "Array 'dc_find' function isn't working properly.")
-    }
 }

@@ -8,37 +8,19 @@
 
 import Foundation
 
-extension Array {
+public extension RangeReplaceableCollectionType where Generator.Element : Equatable  {
     
-    mutating func dc_contains<T where T : Equatable>(obj: T) -> Bool {
+    public mutating func dc_contains<T where T : Equatable>(obj: T) -> Bool {
         return self.filter({$0 as? T == obj}).count > 0
     }
     
-    mutating func dc_removeObject<T where T : Equatable>(obj: T) -> Bool {
+    public mutating func dc_removeObject(obj: Generator.Element) -> Bool {
         
-        
-        var indexToRemove:Int?
-        for (index,eachElement) in self.enumerate() {
-            if eachElement as! T == obj {
-                indexToRemove = index
-            }
-        }
-        if indexToRemove != nil {
-            removeAtIndex(indexToRemove!)
+        if let indexToRemove = self.indexOf(obj) {
+            removeAtIndex(indexToRemove)
             return true
         }
         return false
     }
-    
-    
-    func dc_find (includedElement: Element -> Bool) -> Int? {
-        for (idx, element) in self.enumerate() {
-            if includedElement(element) {
-                return idx
-            }
-        }
-        return nil
-    }
-    
 
 }
