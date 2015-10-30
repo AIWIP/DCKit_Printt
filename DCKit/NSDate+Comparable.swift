@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - NSDate conformance to Comparable protocol
+
 extension NSDate: Comparable {
     /// Implementation of comparable protocol for NSDate
 }

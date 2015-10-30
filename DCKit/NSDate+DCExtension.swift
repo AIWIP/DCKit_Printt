@@ -162,7 +162,54 @@ public extension NSDate {
         let components = calendar.components(flags, fromDate: self)
         return calendar.dateFromComponents(components)!
     }
+ 
+    public class func dc_firstDayOfWeek(fromDate:NSDate) -> NSDate {
+        var startOfWeek:NSDate?
+        var duration: NSTimeInterval = 0
+        calendar.rangeOfUnit(NSCalendarUnit.WeekOfYear, startDate: &startOfWeek,interval:&duration, forDate: fromDate)
+        
+        return startOfWeek!
+    }
     
+    public class func dc_lastDayOfWeek(fromDate:NSDate) -> NSDate {
+        var startOfWeek:NSDate?
+        var duration: NSTimeInterval = 0
+        calendar.rangeOfUnit(NSCalendarUnit.WeekOfYear, startDate: &startOfWeek,interval:&duration, forDate: fromDate)
+        
+        return startOfWeek!.dateByAddingTimeInterval(duration)
+    }
+    
+    public class func dc_firstDayOfMonth(date:NSDate) -> NSDate {
+        var startDate:NSDate?
+        var duration: NSTimeInterval = 0
+        calendar.rangeOfUnit(NSCalendarUnit.Month, startDate: &startDate,interval:&duration, forDate: date)
+    
+        return startDate!
+    }
+
+    public class func dc_lastDayOfMonth(date: NSDate) -> NSDate {
+
+        let dayCount = calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: date).length
+        let components = calendar.components([.Year, .Month, .Day], fromDate: date)
+
+        components.day = dayCount
+        
+        return calendar.dateFromComponents(components)!
+    }
+
+    public class func dc_compareDates(isSameWeek date1:NSDate, date2:NSDate) -> Bool {
+        
+        let calendarFlags:NSCalendarUnit = [.WeekOfYear, .YearForWeekOfYear]
+        
+        let date1Components = calendar.components(calendarFlags, fromDate: date1)
+        let date2Components = calendar.components(calendarFlags, fromDate: date2)
+        
+        if date1Components.weekOfYear == date2Components.weekOfYear
+            && date1Components.yearForWeekOfYear == date2Components.yearForWeekOfYear {
+                return true
+        }
+        return false
+    }
 }
 
 public extension NSDate {

@@ -234,4 +234,99 @@ class NSDateTests: XCTestCase {
         XCTAssertEqual(date1.dc_numberOfDaysBetween(date2), 10, "NSDate 'dc_dateByAddingDays' function isn't working properly")
     }
     
+    func testFirstDayOfWeek() {
+        let components = NSDateComponents()
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        
+        components.year = 2015
+        components.day = 20
+        components.month = 10
+    
+        let testDateInWeek = calendar.dateFromComponents(components)!
+        
+        components.day = 18 + calendar.firstWeekday - 1
+        
+        let firstDayOfWeek = calendar.dateFromComponents(components)!
+        
+        XCTAssertTrue(firstDayOfWeek == NSDate.dc_firstDayOfWeek(testDateInWeek), "Wrong first day of the week")
+    }
+    
+    func testLastDayOfWeek() {
+        let components = NSDateComponents()
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        
+        components.year = 2015
+        components.day = 20
+        components.month = 10
+        
+        let testDateInWeek = calendar.dateFromComponents(components)!
+        
+        components.day = 25 + calendar.firstWeekday - 1
+        
+        let lastDayOfWeek = calendar.dateFromComponents(components)!
+        
+        XCTAssertTrue(lastDayOfWeek == NSDate.dc_lastDayOfWeek(testDateInWeek), "Wrong last day of the week")
+    }
+
+    
+    func testFirstDayOfMonth() {
+        
+        let components = NSDateComponents()
+        
+        components.year = 2015
+        components.day = 30
+        components.month = 10
+        
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        calendar.timeZone = NSTimeZone.localTimeZone()
+        
+        let testDateInMonth = calendar.dateFromComponents(components)!
+
+        components.day = 1
+        
+        let firstDayOfMonth = calendar.dateFromComponents(components)!
+        
+        XCTAssertTrue(firstDayOfMonth == NSDate.dc_firstDayOfMonth(testDateInMonth), "First day in month is not the same")
+    }
+    
+    func testLastDayOfMonth() {
+        let components = NSDateComponents()
+        
+        components.year = 2015
+        components.day = 30
+        components.month = 10
+        
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        calendar.timeZone = NSTimeZone.localTimeZone()
+        
+        let testDateInMonth = calendar.dateFromComponents(components)!
+        
+        components.day = 31
+        
+        let lastDayInMonth = calendar.dateFromComponents(components)!
+        
+        XCTAssertTrue(lastDayInMonth == NSDate.dc_lastDayOfMonth(testDateInMonth), "Last date in month is not correct")
+    }
+    
+    func testCompareSameWeek() {
+        let components = NSDateComponents()
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        
+        components.year = 2015
+        components.day = 30
+        components.month = 10
+        
+        let date1InWeek = calendar.dateFromComponents(components)!
+        
+        components.day = 29
+        
+        let date2InWeek = calendar.dateFromComponents(components)!
+        
+        components.year = 2011
+        
+        let dateNotInWeek = calendar.dateFromComponents(components)!
+        
+        XCTAssertTrue(NSDate.dc_compareDates(isSameWeek: date1InWeek, date2: date2InWeek), "Should be in the same week")
+        XCTAssertFalse(NSDate.dc_compareDates(isSameWeek: date1InWeek, date2: dateNotInWeek), "Should not be in the same week")
+    }
 }

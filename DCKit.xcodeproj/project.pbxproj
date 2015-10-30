@@ -141,12 +141,12 @@
 			children = (
 				CFD076E11B9D795E00FE020E /* VC Custom Transitioning */,
 				7D8610301B95AC720016FA87 /* DCKit.h */,
-				7D28804E1BE36B1300A5A336 /* NSDate+Comparable.swift */,
 				7D86105B1B95BBE10016FA87 /* Array+DC.swift */,
 				7D8610471B95AD3F0016FA87 /* DCRevealVC.swift */,
 				7D8610551B95B1A80016FA87 /* UIDevice+DC.swift */,
 				7D8610591B95BA810016FA87 /* DCFoundation.swift */,
 				7D86106D1B95C17D0016FA87 /* NSDate+DCExtension.swift */,
+				7D28804E1BE36B1300A5A336 /* NSDate+Comparable.swift */,
 				7D86104D1B95AE070016FA87 /* UIViewController+ChildVC.swift */,
 				7D8610651B95BF260016FA87 /* UIResponder+KeyboardCache.swift */,
 				7D86106F1B95C2490016FA87 /* DCRandomNumber.swift */,
