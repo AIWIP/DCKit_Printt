@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		006E79931BCD531700F86EB1 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E79921BCD531700F86EB1 /* ArrayTests.swift */; settings = {ASSET_TAGS = (); }; };
-		006E798F1BCD509400F86EB1 /* EmailValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E798E1BCD509400F86EB1 /* EmailValidationTests.swift */; settings = {ASSET_TAGS = (); }; };
-		006E79911BCD519100F86EB1 /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E79901BCD519100F86EB1 /* NSDateTests.swift */; settings = {ASSET_TAGS = (); }; };
+		006E798F1BCD509400F86EB1 /* EmailValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E798E1BCD509400F86EB1 /* EmailValidationTests.swift */; };
+		006E79911BCD519100F86EB1 /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E79901BCD519100F86EB1 /* NSDateTests.swift */; };
+		006E79931BCD531700F86EB1 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E79921BCD531700F86EB1 /* ArrayTests.swift */; };
 		7D12BEAC1B9894E600069310 /* DCKitColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D12BEAB1B9894E600069310 /* DCKitColorTests.swift */; };
+		7D28804F1BE36B1300A5A336 /* NSDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D28804E1BE36B1300A5A336 /* NSDate+Comparable.swift */; };
+		7D2880511BE36B8000A5A336 /* NSDateComparableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2880501BE36B8000A5A336 /* NSDateComparableTests.swift */; };
 		7D8610311B95AC720016FA87 /* DCKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D8610301B95AC720016FA87 /* DCKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D8610371B95AC720016FA87 /* DCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D86102B1B95AC720016FA87 /* DCKit.framework */; };
 		7D86103E1B95AC720016FA87 /* DCKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86103D1B95AC720016FA87 /* DCKitTests.swift */; };
@@ -55,10 +57,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		006E79921BCD531700F86EB1 /* ArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
 		006E798E1BCD509400F86EB1 /* EmailValidationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidationTests.swift; sourceTree = "<group>"; };
 		006E79901BCD519100F86EB1 /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTests.swift; sourceTree = "<group>"; };
+		006E79921BCD531700F86EB1 /* ArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
 		7D12BEAB1B9894E600069310 /* DCKitColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCKitColorTests.swift; sourceTree = "<group>"; };
+		7D28804E1BE36B1300A5A336 /* NSDate+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparable.swift"; sourceTree = "<group>"; };
+		7D2880501BE36B8000A5A336 /* NSDateComparableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComparableTests.swift; sourceTree = "<group>"; };
 		7D86102B1B95AC720016FA87 /* DCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D86102F1B95AC720016FA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D8610301B95AC720016FA87 /* DCKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCKit.h; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 			children = (
 				CFD076E11B9D795E00FE020E /* VC Custom Transitioning */,
 				7D8610301B95AC720016FA87 /* DCKit.h */,
+				7D28804E1BE36B1300A5A336 /* NSDate+Comparable.swift */,
 				7D86105B1B95BBE10016FA87 /* Array+DC.swift */,
 				7D8610471B95AD3F0016FA87 /* DCRevealVC.swift */,
 				7D8610551B95B1A80016FA87 /* UIDevice+DC.swift */,
@@ -181,6 +186,7 @@
 				7D8BD7E51B9F670100FA73AE /* UIViewTests.swift */,
 				7D86103B1B95AC720016FA87 /* Supporting Files */,
 				006E798E1BCD509400F86EB1 /* EmailValidationTests.swift */,
+				7D2880501BE36B8000A5A336 /* NSDateComparableTests.swift */,
 			);
 			path = DCKitTests;
 			sourceTree = "<group>";
@@ -322,6 +328,7 @@
 				7D8610561B95B1A80016FA87 /* UIDevice+DC.swift in Sources */,
 				7D86106E1B95C17D0016FA87 /* NSDate+DCExtension.swift in Sources */,
 				CFD076EE1B9D795E00FE020E /* DCVCTransitionBase.swift in Sources */,
+				7D28804F1BE36B1300A5A336 /* NSDate+Comparable.swift in Sources */,
 				7D8610601B95BC810016FA87 /* NSString+EmailValidation.m in Sources */,
 				7D8610721B95C6320016FA87 /* UIView+DCFrame.swift in Sources */,
 				7D8610661B95BF260016FA87 /* UIResponder+KeyboardCache.swift in Sources */,
@@ -354,6 +361,7 @@
 				006E798F1BCD509400F86EB1 /* EmailValidationTests.swift in Sources */,
 				7D12BEAC1B9894E600069310 /* DCKitColorTests.swift in Sources */,
 				7DB899C01B95EAEA00828DDD /* DevicesTest.swift in Sources */,
+				7D2880511BE36B8000A5A336 /* NSDateComparableTests.swift in Sources */,
 				006E79911BCD519100F86EB1 /* NSDateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
