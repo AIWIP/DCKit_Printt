@@ -248,7 +248,7 @@ class NSDateTests: XCTestCase {
         
         let firstDayOfWeek = calendar.dateFromComponents(components)!
         
-        XCTAssertTrue(firstDayOfWeek == NSDate.dc_firstDayOfWeek(testDateInWeek), "Wrong first day of the week")
+        XCTAssertTrue(firstDayOfWeek == testDateInWeek.dc_firstDayOfWeek(), "Wrong first day of the week")
     }
     
     func testLastDayOfWeek() {
@@ -265,7 +265,7 @@ class NSDateTests: XCTestCase {
         
         let lastDayOfWeek = calendar.dateFromComponents(components)!
         
-        XCTAssertTrue(lastDayOfWeek == NSDate.dc_lastDayOfWeek(testDateInWeek), "Wrong last day of the week")
+        XCTAssertTrue(lastDayOfWeek == testDateInWeek.dc_lastDayOfWeek(), "Wrong last day of the week")
     }
 
     
@@ -286,7 +286,7 @@ class NSDateTests: XCTestCase {
         
         let firstDayOfMonth = calendar.dateFromComponents(components)!
         
-        XCTAssertTrue(firstDayOfMonth == NSDate.dc_firstDayOfMonth(testDateInMonth), "First day in month is not the same")
+        XCTAssertTrue(firstDayOfMonth == testDateInMonth.dc_firstDayOfMonth(), "First day in month is not the same")
     }
     
     func testLastDayOfMonth() {
@@ -305,7 +305,7 @@ class NSDateTests: XCTestCase {
         
         let lastDayInMonth = calendar.dateFromComponents(components)!
         
-        XCTAssertTrue(lastDayInMonth == NSDate.dc_lastDayOfMonth(testDateInMonth), "Last date in month is not correct")
+        XCTAssertTrue(lastDayInMonth == testDateInMonth.dc_lastDayOfMonth(), "Last date in month is not correct")
     }
     
     func testCompareSameWeek() {
@@ -325,8 +325,7 @@ class NSDateTests: XCTestCase {
         components.year = 2011
         
         let dateNotInWeek = calendar.dateFromComponents(components)!
-        
-        XCTAssertTrue(NSDate.dc_compareDates(isSameWeek: date1InWeek, date2: date2InWeek), "Should be in the same week")
-        XCTAssertFalse(NSDate.dc_compareDates(isSameWeek: date1InWeek, date2: dateNotInWeek), "Should not be in the same week")
+        XCTAssertTrue(date1InWeek.dc_compareDates(isSameWeek: date2InWeek), "Should be in the same week")
+        XCTAssertFalse(dateNotInWeek.dc_compareDates(isSameWeek: date1InWeek), "Should not be in the same week")
     }
 }
