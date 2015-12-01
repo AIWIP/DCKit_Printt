@@ -9,5 +9,6 @@ Pod::Spec.new do |spec|
   spec.source_files     = 'DCKit', 'DCKit/VC Custom Transitioning'
   spec.requires_arc     = true
   spec.ios.deployment_target = '8.0'
+  spec.dependency 'SnapKit'
   
 end
