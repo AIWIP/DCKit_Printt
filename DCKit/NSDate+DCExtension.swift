@@ -220,5 +220,20 @@ public extension NSDate {
         }
         return false
     }
+    
+    public func dc_isSameWeekday(date: NSDate) -> Bool {
+        
+        let calendarFlags: NSCalendarUnit = [.Weekday]
+        
+        let date1Components = calendar.components(calendarFlags, fromDate: self)
+        let date2Components = calendar.components(calendarFlags, fromDate: date)
+        
+        if date1Components.weekday == date2Components.weekday {
+            return true
+        }
+        
+        return false
+    }
+
 
 }

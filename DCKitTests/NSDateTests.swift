@@ -328,4 +328,29 @@ class NSDateTests: XCTestCase {
         XCTAssertTrue(date1InWeek.dc_compareDates(isSameWeek: date2InWeek), "Should be in the same week")
         XCTAssertFalse(dateNotInWeek.dc_compareDates(isSameWeek: date1InWeek), "Should not be in the same week")
     }
+    
+    func testSameWeekDay() {
+        
+        let components = NSDateComponents()
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        
+        components.year = 2015
+        components.day = 8
+        components.month = 12
+        
+        let date1 = calendar.dateFromComponents(components)!
+        
+        components.day = 9
+        
+        let date2 = calendar.dateFromComponents(components)!
+        
+        XCTAssertFalse(date1.dc_isSameWeekday(date2), "Should be wednesday, not tuesday")
+        
+        components.day = 8 + 7
+        
+        let date3 = calendar.dateFromComponents(components)!
+        
+        XCTAssertTrue(date1.dc_isSameWeekday(date3), "Should be tuesday")
+
+    }
 }
