@@ -9,21 +9,35 @@
 import UIKit
 import SnapKit
 
-class DCPageTabBarController: UIViewController, DCPageTabBarContentScrollVCDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+// DCPageTabBarController needs to be modified with DCPageTabBarConfiguration
+
+public struct DCPageTabBarConfiguration {
+    var tabBarMenuBackgroundColor: UIColor = .whiteColor()
+    var selectionViewBackgroundColor: UIColor = .blueColor()
+    
+    var tabBarMenuSelectedItemColor: UIColor = .blueColor()
+    var tabBarMenuItemColor: UIColor = .whiteColor()
+    var titleLabelFont: UIFont = UIFont(name: "Helvetica Neue", size: 13)!
+}
+
+public class DCPageTabBarController: UIViewController, DCPageTabBarContentScrollVCDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    static var configuration = DCPageTabBarConfiguration()
     
     private var contentVC:DCPageTabBarContentScrollVC!
     private var menuView:DCPageTabBarMenuView!
     
+    
     private var viewControllers:[UIViewController]!
-    var currentViewController:UIViewController {return contentVC.currentViewController!}
+    public var currentViewController:UIViewController {return contentVC.currentViewController!}
     
     
     private(set) var menuViewSeparatorLine:UIView!
     
-    var startingIndex : Int = 0
+    public var startingIndex : Int = 0
     private var didLayoutOnce = false
     
-    func configure(viewControllers:[UIViewController]) {
+    public func configure(viewControllers:[UIViewController]) {
         
         self.viewControllers = viewControllers
         if let contentVC = contentVC, let menuView = menuView  {
@@ -32,7 +46,7 @@ class DCPageTabBarController: UIViewController, DCPageTabBarContentScrollVCDeleg
         }
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         contentVC = DCPageTabBarContentScrollVC()
@@ -73,7 +87,7 @@ class DCPageTabBarController: UIViewController, DCPageTabBarContentScrollVCDeleg
         
     }
     
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         if !didLayoutOnce {
@@ -82,14 +96,14 @@ class DCPageTabBarController: UIViewController, DCPageTabBarContentScrollVCDeleg
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         let indexPath = NSIndexPath(forItem: startingIndex, inSection: 0)
         menuView.selectItemAtIndexPath(indexPath, animated: false, scrollPosition: .None)
     }
     
-    func pageTabBarContentScrollVC(vc: DCPageTabBarContentScrollVC, didChangeContentOffset offset: CGPoint) {
+    public func pageTabBarContentScrollVC(vc: DCPageTabBarContentScrollVC, didChangeContentOffset offset: CGPoint) {
         
         let menuViewHorizontalSize = menuView.contentSize.width + menuView.contentInset.left + menuView.contentInset.right
         let viewWidth = view.frame.width
@@ -103,13 +117,10 @@ class DCPageTabBarController: UIViewController, DCPageTabBarContentScrollVCDeleg
         }
     }
     
-    
-    func pageTabBarContentScrollVC(vc: DCPageTabBarContentScrollVC, didTransitionToViewController currentVC: UIViewController) {
+    public func pageTabBarContentScrollVC(vc: DCPageTabBarContentScrollVC, didTransitionToViewController currentVC: UIViewController) {
     }
     
-    
-    
-    func pageTabBarContentScrollVC(vc: DCPageTabBarContentScrollVC, willTransitionToViewController currentVC: UIViewController) {
+    public func pageTabBarContentScrollVC(vc: DCPageTabBarContentScrollVC, willTransitionToViewController currentVC: UIViewController) {
         if let currentIndex = viewControllers.indexOf(currentVC) {
             menuView.selectItemAtIndexPath(NSIndexPath(forItem: currentIndex, inSection: 0), animated: true, scrollPosition: .None)
         }
@@ -117,11 +128,11 @@ class DCPageTabBarController: UIViewController, DCPageTabBarContentScrollVCDeleg
     
     //MARK: DCPageTabBarMenuView
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewControllers.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(DCPageTabBarMenuItemView.identifier, forIndexPath: indexPath) as! DCPageTabBarMenuItemView
         
@@ -130,12 +141,12 @@ class DCPageTabBarController: UIViewController, DCPageTabBarContentScrollVCDeleg
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return DCPageTabBarMenuItemView.sizeForText(viewControllers[indexPath.row].title ?? "--")
     }
     
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.selectItemAtIndexPath(indexPath, animated: true, scrollPosition: .None)
         contentVC.showViewControllerAtIndex(indexPath.row)
     }
@@ -147,21 +158,21 @@ class DCPageTabBarController: UIViewController, DCPageTabBarContentScrollVCDeleg
 
 //MARK: - DCPageTabBarMenuView
 
-
 private class DCPageTabBarMenuView: UICollectionView {
     
     private var selectionView = UIView()
     private var startingIndex : Int
+    
     init(startingIndex: Int) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
         self.startingIndex = startingIndex
         super.init(frame: CGRectZero, collectionViewLayout: layout)
         
-        self.backgroundColor = GSColors.tabBarMenuBackground
+        self.backgroundColor = DCPageTabBarController.configuration.tabBarMenuBackgroundColor
         
         
-        selectionView.backgroundColor = GSColors.brand
+        selectionView.backgroundColor = DCPageTabBarController.configuration.selectionViewBackgroundColor
         selectionView.frame = CGRect(x: 0, y: 0, width: 100, height: 5)
         showsHorizontalScrollIndicator = false
         
@@ -204,19 +215,16 @@ private class DCPageTabBarMenuView: UICollectionView {
     
 }
 
-
-
 private class DCPageTabBarMenuItemView: UICollectionViewCell {
     
     private(set) var titleLabel:UILabel!
     
-    
     override var selected: Bool {
         didSet{
             if selected {
-                titleLabel.textColor = GSColors.tabBarMenuSelectedItem
+                titleLabel.textColor = DCPageTabBarController.configuration.tabBarMenuSelectedItemColor
             }else {
-                titleLabel.textColor = GSColors.tabBarMenuItem
+                titleLabel.textColor = DCPageTabBarController.configuration.tabBarMenuItemColor
             }
         }
     }
@@ -225,7 +233,7 @@ private class DCPageTabBarMenuItemView: UICollectionViewCell {
         super.init(frame: frame)
         
         titleLabel = UILabel()
-        titleLabel.font = GSFonts.fontGothamBold(12)
+        titleLabel.font = DCPageTabBarController.configuration.titleLabelFont
         titleLabel.textAlignment = .Center
         contentView.addSubview(titleLabel)
         
@@ -256,7 +264,7 @@ private class DCPageTabBarMenuItemView: UICollectionViewCell {
         
         var rect = CGRect()
         // TODO: fix
-        rect = text.boundingRectWithSize(CGSize(), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName : GSFonts.fontGothamBold(12)], context: nil)
+        rect = text.boundingRectWithSize(CGSize(), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont(name: "Helvetica Neue", size: 12)!], context: nil)
         return CGSize(width: rect.width+55, height: 30)
     }
     
@@ -267,7 +275,7 @@ private class DCPageTabBarMenuItemView: UICollectionViewCell {
 //MARK: - DCPageTabBarContentScrollVC
 
 
-protocol DCPageTabBarContentScrollVCDelegate : class {
+public protocol DCPageTabBarContentScrollVCDelegate : class {
     
     func pageTabBarContentScrollVC(vc:DCPageTabBarContentScrollVC, didChangeContentOffset offset:CGPoint)
     func pageTabBarContentScrollVC(vc:DCPageTabBarContentScrollVC, didTransitionToViewController currentVC:UIViewController)
@@ -277,7 +285,7 @@ protocol DCPageTabBarContentScrollVCDelegate : class {
 }
 
 
-class DCPageTabBarContentScrollVC:UIViewController, UIScrollViewDelegate {
+public class DCPageTabBarContentScrollVC:UIViewController, UIScrollViewDelegate {
     
     private var viewControllers:[UIViewController] = []
     
@@ -292,19 +300,19 @@ class DCPageTabBarContentScrollVC:UIViewController, UIScrollViewDelegate {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     
-    override func loadView() {
+    override public func loadView() {
         view = UIScrollView()
         scrollView!.delegate = self
         scrollView!.pagingEnabled = true
         scrollView!.scrollsToTop = false
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.clearColor()
@@ -357,7 +365,7 @@ class DCPageTabBarContentScrollVC:UIViewController, UIScrollViewDelegate {
     
     private var newCurrentIndex:Int?
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    public func scrollViewDidScroll(scrollView: UIScrollView) {
         delegate?.pageTabBarContentScrollVC(self, didChangeContentOffset: scrollView.contentOffset)
         
         
@@ -369,7 +377,7 @@ class DCPageTabBarContentScrollVC:UIViewController, UIScrollViewDelegate {
         
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         
         let currentOffset = scrollView.contentOffset
         
