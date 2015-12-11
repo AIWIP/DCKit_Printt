@@ -9,20 +9,38 @@
 import UIKit
 import SnapKit
 
-// DCPageTabBarController needs to be modified with DCPageTabBarConfiguration
-
 public struct DCPageTabBarConfiguration {
-    var tabBarMenuBackgroundColor: UIColor = .whiteColor()
-    var selectionViewBackgroundColor: UIColor = .blueColor()
+    public var tabBarMenuBackgroundColor: UIColor = .whiteColor()
+    public var selectionViewBackgroundColor: UIColor = .blueColor()
     
-    var tabBarMenuSelectedItemColor: UIColor = .blueColor()
-    var tabBarMenuItemColor: UIColor = .whiteColor()
-    var titleLabelFont: UIFont = UIFont(name: "Helvetica Neue", size: 13)!
+    public var menuSeparatorColor: UIColor = .grayColor()
+    
+    public var contentViewBackgroundColor: UIColor = .clearColor()
+    
+    public var tabBarMenuSelectedItemColor: UIColor = .blueColor()
+    public var tabBarMenuItemColor: UIColor = .blackColor()
+    public var titleLabelFont: UIFont = UIFont(name: "Helvetica Neue", size: 13)!
+    
 }
+
+/// DCPageTabBarController
+///
+/// A tab bar provides easy access to different views in an app.
+/// Use a tab bar to organize information in your app by subtask.
+///
+/// More Stuff
+/// ==========
+///
+/// - note: This control parameters can be modified with static struct DCPageTabBarConfiguration
+/// (ex. DCPageTabBarController.configuration.menuSeparatorColor = .greyColor())
+///
+/// - parameters:
+///   - [viewControllers]: A list of viewcontrollers you want to present.
+///   - startingIndex: Index of starting view
 
 public class DCPageTabBarController: UIViewController, DCPageTabBarContentScrollVCDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    static var configuration = DCPageTabBarConfiguration()
+    public static var configuration = DCPageTabBarConfiguration()
     
     private var contentVC:DCPageTabBarContentScrollVC!
     private var menuView:DCPageTabBarMenuView!
@@ -60,9 +78,7 @@ public class DCPageTabBarController: UIViewController, DCPageTabBarContentScroll
         
         
         menuViewSeparatorLine = UIView()
-        menuViewSeparatorLine.backgroundColor = UIColor.grayColor()
-        
-        
+        menuViewSeparatorLine.backgroundColor = DCPageTabBarController.configuration.menuSeparatorColor
         
         dc_attachChildVC(contentVC)
         view.addSubview(menuView)
@@ -264,7 +280,7 @@ private class DCPageTabBarMenuItemView: UICollectionViewCell {
         
         var rect = CGRect()
         // TODO: fix
-        rect = text.boundingRectWithSize(CGSize(), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont(name: "Helvetica Neue", size: 12)!], context: nil)
+        rect = text.boundingRectWithSize(CGSize(), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName : DCPageTabBarController.configuration.titleLabelFont], context: nil)
         return CGSize(width: rect.width+55, height: 30)
     }
     
@@ -315,7 +331,7 @@ public class DCPageTabBarContentScrollVC:UIViewController, UIScrollViewDelegate 
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = DCPageTabBarController.configuration.contentViewBackgroundColor
         
     }
     
@@ -368,6 +384,11 @@ public class DCPageTabBarContentScrollVC:UIViewController, UIScrollViewDelegate 
     public func scrollViewDidScroll(scrollView: UIScrollView) {
         delegate?.pageTabBarContentScrollVC(self, didChangeContentOffset: scrollView.contentOffset)
         
+        // Control crashes if used with navBar or if it's content is presented with any offset. Temporary solution is to guard view's width so VCs and its views can initialize properly.
+        
+        guard view.frame.width > 0 else {
+            return
+        }
         
         let newIndex = round(scrollView.contentOffset.x/view.frame.width)
         if newCurrentIndex != Int(newIndex) {
