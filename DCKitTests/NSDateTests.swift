@@ -325,8 +325,8 @@ class NSDateTests: XCTestCase {
         components.year = 2011
         
         let dateNotInWeek = calendar.dateFromComponents(components)!
-        XCTAssertTrue(date1InWeek.dc_compareDates(isSameWeek: date2InWeek), "Should be in the same week")
-        XCTAssertFalse(dateNotInWeek.dc_compareDates(isSameWeek: date1InWeek), "Should not be in the same week")
+        XCTAssertTrue(date1InWeek.dc_isSameWeek(date2InWeek), "Should be in the same week")
+        XCTAssertFalse(dateNotInWeek.dc_isSameWeek(date1InWeek), "Should not be in the same week")
     }
     
     func testSameWeekDay() {

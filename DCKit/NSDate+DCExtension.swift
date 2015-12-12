@@ -209,12 +209,12 @@ public extension NSDate {
         return calendar.dateFromComponents(components)!
     }
     
-    public func dc_compareDates(isSameWeek withDate:NSDate) -> Bool {
+    public func dc_isSameWeek(anotherDate:NSDate) -> Bool {
         
         let calendarFlags:NSCalendarUnit = [.WeekOfYear, .YearForWeekOfYear]
         
         let date1Components = calendar.components(calendarFlags, fromDate: self)
-        let date2Components = calendar.components(calendarFlags, fromDate: withDate)
+        let date2Components = calendar.components(calendarFlags, fromDate: anotherDate)
         
         if date1Components.weekOfYear == date2Components.weekOfYear
             && date1Components.yearForWeekOfYear == date2Components.yearForWeekOfYear {
