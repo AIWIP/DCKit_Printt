@@ -105,7 +105,7 @@ public extension NSDate {
     /** If you pass nil as parameter, component will be ignored */
     public func dc_dateWithComponents(year:Int?=nil, month:Int?=nil, day:Int?=nil, hour:Int?=nil, minute:Int?=nil, second:Int?=nil) -> NSDate? {
         
-        let calendarUnits = [.Era, .Year, .Month, .Day, .Hour, .Minute, .Second]
+        let calendarUnits: NSCalendarUnit = [.Era, .Year, .Month, .Day, .Hour, .Minute, .Second]
 
         let components = calendar.components(calendarUnits, fromDate: self)
         components.year     = year ?? components.year
