@@ -120,26 +120,18 @@ class NSDateTests: XCTestCase {
         components1.month = 3
         components1.day = 17
         let newDate1 = calendar.dateFromComponents(components1)
-        
-        let components2 = NSDateComponents()
-        components2.hour = 14
-        components2.minute = 20
-        components2.second = 0
-        let newDate2 = calendar.dateFromComponents(components2)
-        
+                
         components1.hour = 14
         components1.minute = 20
         components1.second = 0
     
         let newDate3 = calendar.dateFromComponents(components1)
 
-        let dateWithComponents = NSDate().dc_dateWithComponents(components1.year, month: components1.month, day: components1.day)
-        let dateWithHourComponents = NSDate().dc_dateWithComponents(hour: components2.hour, minute: components2.minute, second: components2.second)
+        let dateWithComponents = NSDate().dc_dateWithComponents(components1.year, month: components1.month, day: components1.day, hour:0, minute:0, second:0)
         let dateWithAllComponents = NSDate().dc_dateWithComponents(components1.year, month: components1.month, day: components1.day, hour: components1.hour, minute: components1.minute, second: components1.second)
 
     
         XCTAssertEqual(newDate1, dateWithComponents, "NSDate 'dc_dateWithComponents' function isn't working properly")
-        XCTAssertEqual(newDate2, dateWithHourComponents, "NSDate 'dc_dateWithComponents' function isn't working properly")
         XCTAssertEqual(newDate3, dateWithAllComponents, "NSDate 'dc_dateWithComponents' function isn't working properly")
     }
     
