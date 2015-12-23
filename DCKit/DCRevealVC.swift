@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
     
-    public var revealVC:DCRevealVC? {
+    public var dc_revealVC:DCRevealVC? {
         
         var parentVC:UIViewController? = self.parentViewController
         
