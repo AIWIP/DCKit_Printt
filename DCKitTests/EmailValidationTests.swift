@@ -30,7 +30,10 @@ class EmailValidationTests: XCTestCase {
         let email6 = "auth@verifier.port25.com" as NSString
         let email7 = "test@agency.agency" as NSString
         let email8 = "m@m.io" as NSString
-        
+        let email9 = "vladimir.kolbas@fly.cc.fer.hr" as NSString
+        let email10 = "vladimir.kolbas+extension@gmail.com" as NSString
+        let email11 = "vkolbas@127.0.0.1" as NSString
+        let email12 = "vkolbas@.mac.com" as NSString
         
         XCTAssertTrue(email.dc_isValidEmail(), "Email is not valid")
         XCTAssertTrue(email2.dc_isValidEmail(), "Email is not valid")
@@ -40,7 +43,10 @@ class EmailValidationTests: XCTestCase {
         XCTAssertTrue(email6.dc_isValidEmail(), "Email is valid")
         XCTAssertTrue(email7.dc_isValidEmail(), "Email is valid")
         XCTAssertTrue(email8.dc_isValidEmail(), "Email is valid")
-        
+        XCTAssertTrue(email9.dc_isValidEmail(), "Email should be valid")
+        XCTAssertTrue(email10.dc_isValidEmail(), "Email should be valid")
+        XCTAssertTrue(email11.dc_isValidEmail(), "Email should be valid")
+        XCTAssertFalse(email12.dc_isValidEmail(), "Email should not be valid")
     }
     
 }
