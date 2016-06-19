@@ -12,6 +12,16 @@ import Foundation
 
 private var calendar:NSCalendar! = NSCalendar.currentCalendar()
 
+private let normalizedDateFlags: NSCalendarUnit = [.Year, .Month, .Day]
+
+private var normalizedCalendar: NSCalendar = {
+ 
+    let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+    calendar.timeZone = NSTimeZone(abbreviation: "UTC")!
+
+    return calendar
+}()
+
 public extension NSDate {
     
     public class func dc_is24HourModeEnabled() -> Bool {
@@ -157,12 +167,8 @@ public extension NSDate {
     
     /** Returns input date with HH:MM:SS reset to it's midnight, eg. 21/9/2015 21:21:21 -> 21/9/2015 00:00:00 */
     public func dc_normalizedDate() -> NSDate {
-        let flags: NSCalendarUnit = [.Year, .Month, .Day]
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        calendar.timeZone = NSTimeZone(abbreviation: "UTC")!
-        
-        let components = calendar.components(flags, fromDate: self)
-        return calendar.dateFromComponents(components)!
+        let components = normalizedCalendar.components(normalizedDateFlags, fromDate: self)
+        return normalizedCalendar.dateFromComponents(components)!
     }
 }
 
