@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = 'DCKit'
-  spec.version          = '0.2.9'
+  spec.version          = '0.3.0'
   spec.license          = { :type => 'BSD' }
   spec.homepage         = 'http://www.decode.agency'
   spec.authors          = { 'Vladimir Kolbas' => 'vladimir.kolbas@decode.agency' }
