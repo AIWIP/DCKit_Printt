@@ -8,16 +8,16 @@
 
 import Foundation
 
-public extension RangeReplaceableCollectionType where Generator.Element : Equatable  {
+public extension RangeReplaceableCollection where Iterator.Element : Equatable  {
     
-    public mutating func dc_contains<T where T : Equatable>(obj: T) -> Bool {
+    public mutating func dc_contains<T>(_ obj: T) -> Bool where T : Equatable {
         return self.filter({$0 as? T == obj}).count > 0
     }
     
-    public mutating func dc_removeObject(obj: Generator.Element) -> Bool {
+    public mutating func dc_removeObject(_ obj: Iterator.Element) -> Bool {
         
-        if let indexToRemove = self.indexOf(obj) {
-            removeAtIndex(indexToRemove)
+        if let indexToRemove = self.index(of: obj) {
+            remove(at: indexToRemove)
             return true
         }
         return false

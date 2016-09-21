@@ -9,12 +9,12 @@
 import Foundation
 
 
-public extension NSHTTPURLResponse {
+public extension HTTPURLResponse {
     
-    public func dc_debugDescription(showHeader showHeader:Bool, body:NSData?) -> String {
+    public func dc_debugDescription(showHeader:Bool, body:Data?) -> String {
         
         
-        let urlInfo = "URL: (\(statusCode)) " + URL!.absoluteString + "\n"
+        let urlInfo = "URL: (\(statusCode)) " + url!.absoluteString + "\n"
         
         var info = "\n\n****** URL RESPONSE ********\n" + urlInfo
         
@@ -24,7 +24,7 @@ public extension NSHTTPURLResponse {
         }
         
         if let body = body {
-            let bodyString = NSString(data: body, encoding: NSUTF8StringEncoding) as! String
+            let bodyString = NSString(data: body, encoding: String.Encoding.utf8.rawValue) as! String
             let bodyInfo = "Body:\n" + bodyString
             info = info + bodyInfo
         }

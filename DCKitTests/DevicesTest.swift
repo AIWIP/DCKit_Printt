@@ -24,20 +24,20 @@ class DevicesTest: XCTestCase {
 
     func testPhone() {
         
-        let device = UIDevice.currentDevice().name
+        let device = UIDevice.current.name
 
         switch device {
         case let value where value.hasPrefix("iPhone"):
-            XCTAssert(UIDevice.currentDevice().dc_deviceIsIphone, "Pass")
+            XCTAssert(UIDevice.current.dc_deviceIsIphone, "Pass")
         case let value where value.hasPrefix("iPad"):
-            XCTAssert(UIDevice.currentDevice().dc_deviceIsIpad, "Pass")
+            XCTAssert(UIDevice.current.dc_deviceIsIpad, "Pass")
         case let value where value.hasPrefix("iPod"):
-            XCTAssert(UIDevice.currentDevice().dc_deviceIsIpod, "Pass")
+            XCTAssert(UIDevice.current.dc_deviceIsIpod, "Pass")
         default:
             XCTAssert(false, "Failed to determine device")
         }
         
-        NSDate().dc_normalizedDate()
+        Date().dc_normalizedDate()
     }
 
     

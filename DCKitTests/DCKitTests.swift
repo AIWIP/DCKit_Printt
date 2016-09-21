@@ -24,12 +24,12 @@ class DCKitTests: XCTestCase {
     
     func testIsIphone() {
         // This is an example of a functional test case.
-        XCTAssert(UIDevice.currentDevice().dc_deviceIsIphone, "Pass")
+        XCTAssert(UIDevice.current.dc_deviceIsIphone, "Pass")
     }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock() {
+        self.measure() {
             dc_delay(10.0, closure: { () -> () in
                 print("Finished")
             })

@@ -11,52 +11,52 @@ import UIKit
 
 public extension UIViewController {
     
-    public func dc_attachChildVC(childVC:UIViewController) {
+    public func dc_attachChildVC(_ childVC:UIViewController) {
         dc_attachChildVC(childVC, parentView: self.view)
     }
     
-    public func dc_attachChildVC(childVC:UIViewController, parentView:UIView) {
+    public func dc_attachChildVC(_ childVC:UIViewController, parentView:UIView) {
         
         addChildViewController(childVC)
         parentView.addSubview(childVC.view)
-        childVC.didMoveToParentViewController(self)
+        childVC.didMove(toParentViewController: self)
     }
     
-    public func dc_attachChildVCWithoutAddingToViewHierarchy(childVC:UIViewController) {
+    public func dc_attachChildVCWithoutAddingToViewHierarchy(_ childVC:UIViewController) {
         addChildViewController(childVC)
-        childVC.didMoveToParentViewController(self)
+        childVC.didMove(toParentViewController: self)
     }
     
     public func dc_detachVCFromParentVC() {
     
         view.removeFromSuperview()
         removeFromParentViewController()
-        didMoveToParentViewController(nil)
+        didMove(toParentViewController: nil)
         
         
     }
     
     
     
-    public func dc_transitionWithSpring(fromVC fromVC:UIViewController, toVC:UIViewController, animationDuration:Double, springValue:Double, velocity:Double, prepareLayoutBlock:(()->Void)?, animationBlock:(fromViewSnaphot:UIView, toView:UIView)->Void, completionBlock:((Bool)->Void)?) {
+    public func dc_transitionWithSpring(fromVC:UIViewController, toVC:UIViewController, animationDuration:Double, springValue:Double, velocity:Double, prepareLayoutBlock:(()->Void)?, animationBlock:@escaping (_ fromViewSnaphot:UIView, _ toView:UIView)->Void, completionBlock:((Bool)->Void)?) {
         
-        let fromViewSnaphot = fromVC.view.snapshotViewAfterScreenUpdates(false)
-        fromViewSnaphot.frame = fromVC.view.frame
-        view.addSubview(fromViewSnaphot)
+        let fromViewSnaphot = fromVC.view.snapshotView(afterScreenUpdates: false)
+        fromViewSnaphot?.frame = fromVC.view.frame
+        view.addSubview(fromViewSnaphot!)
         
         fromVC.beginAppearanceTransition(false, animated: true)
         fromVC.view.removeFromSuperview()
 
         let toView = toVC.view
-        view.addSubview(toView)
+        view.addSubview(toView!)
         
         prepareLayoutBlock?()
         
-        UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: CGFloat(springValue), initialSpringVelocity: CGFloat(velocity), options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
-            animationBlock(fromViewSnaphot: fromViewSnaphot, toView: toView)
+        UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: CGFloat(springValue), initialSpringVelocity: CGFloat(velocity), options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+            animationBlock(fromViewSnaphot!, toView!)
         }) { (finished) -> Void in
             fromVC.endAppearanceTransition()
-            fromViewSnaphot.removeFromSuperview()
+            fromViewSnaphot?.removeFromSuperview()
             completionBlock?(finished)
         }
         

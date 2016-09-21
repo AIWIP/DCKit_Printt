@@ -11,9 +11,9 @@ import XCTest
 
 class NSDateComparableTests: XCTestCase {
 
-    let now = NSDate()
-    let later = NSDate(timeIntervalSinceNow: 10)
-    let before = NSDate(timeIntervalSinceNow: -10)
+    let now = Date()
+    let later = Date(timeIntervalSinceNow: 10)
+    let before = Date(timeIntervalSinceNow: -10)
     
     override func setUp() {
         

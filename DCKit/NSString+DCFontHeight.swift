@@ -11,9 +11,9 @@ import Foundation
 public extension NSString {
     
     public func dc_height(usingFont font:UIFont, constrainedToWidth width:CGFloat) -> CGFloat {
-        let constrainedSize = CGSizeMake(width, 1000)
+        let constrainedSize = CGSize(width: width, height: 1000)
         let attributes = [NSFontAttributeName : font]
-        let textRect = self.boundingRectWithSize(constrainedSize, options: .UsesLineFragmentOrigin, attributes: attributes, context: nil)
+        let textRect = self.boundingRect(with: constrainedSize, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         return textRect.height
     }
 }

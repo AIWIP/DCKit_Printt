@@ -8,59 +8,58 @@
 
 import UIKit
 
-public class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
+open class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
     
-    public var springDamping:CGFloat                = 1
-    public var springVelocity:CGFloat               = 5
-    public var durationAppearing:NSTimeInterval     = 0.4
-    public var durationDissappearing:NSTimeInterval = 0.4
+    open var springDamping:CGFloat                = 1
+    open var springVelocity:CGFloat               = 5
+    open var durationAppearing:TimeInterval     = 0.4
+    open var durationDissappearing:TimeInterval = 0.4
 
-    override public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    override open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        guard let containerView = transitionContext.containerView() else {
-            fatalError("Containerview should be present")
-        }
+        let containerView = transitionContext.containerView
         
-        let fromViewVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-        let toViewVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        let fromViewVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
+        let toViewVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
         
-        let toView = toViewVC.view
+        let toView = toViewVC.view!
         
-        let fromView = fromViewVC.view
+        let fromView = fromViewVC.view!
         fromView.translatesAutoresizingMaskIntoConstraints = true
 
         
 //        let toViewFinalFrame = transitionContext.finalFrameForViewController(toViewVC)
         
         
-        let animationDuration = self.transitionDuration(transitionContext)
+        let animationDuration = self.transitionDuration(using: transitionContext)
         
-        if transitionType == .Appear {
+        if transitionType == .appear {
             
-            var snapshotFrame = CGRectMake(0, 0, fromView.frame.width/2, fromView.frame.height)
+            var snapshotFrame = CGRect(x: 0, y: 0, width: (fromView.frame.width)/2, height: (fromView.frame.height))
             
             
-            let leftSnapshot = fromView.resizableSnapshotViewFromRect(snapshotFrame, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+            let leftSnapshot = fromView.resizableSnapshotView(from: snapshotFrame, afterScreenUpdates: false, withCapInsets: UIEdgeInsets.zero)!
             leftSnapshot.dc_x = 0
-            leftSnapshot.dc_y = fromView.dc_y
+            leftSnapshot.dc_y = (fromView.dc_y)
 
             
-            snapshotFrame.origin.x = fromView.dc_width/2
-            let rightSnapshot = fromView.resizableSnapshotViewFromRect(snapshotFrame, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
-            rightSnapshot.dc_x = fromView.dc_width/2
-            rightSnapshot.dc_y = fromView.dc_y
+            snapshotFrame.origin.x = (fromView.dc_width)/2
             
-            toView.transform = CGAffineTransformMakeScale(0.8, 0.8)
+            let rightSnapshot = fromView.resizableSnapshotView(from: snapshotFrame, afterScreenUpdates: false, withCapInsets: UIEdgeInsets.zero)!
+            rightSnapshot.dc_x = (fromView.dc_width)/2
+            rightSnapshot.dc_y = (fromView.dc_y)
+            
+            toView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             
             fromView.removeFromSuperview()
             containerView.addSubview(toView)
             containerView.addSubview(leftSnapshot)
             containerView.addSubview(rightSnapshot)
             
-            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
                 leftSnapshot.dc_x -= leftSnapshot.dc_width
                 rightSnapshot.dc_x += rightSnapshot.dc_width
-                toView.transform = CGAffineTransformIdentity
+                toView.transform = CGAffineTransform.identity
 
             }, completion: { (finished) -> Void in
                 leftSnapshot.removeFromSuperview()
@@ -68,31 +67,31 @@ public class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
                 transitionContext.completeTransition(true)
             })
             
-        }else if transitionType == .Dissappear {
+        }else if transitionType == .dissappear {
             
             containerView.addSubview(toView)
             
             
             let blankView = UIView()
-            blankView.backgroundColor = UIColor.whiteColor()
+            blankView.backgroundColor = UIColor.white
             blankView.frame = containerView.bounds
             containerView.addSubview(blankView)
             
-            var snapshotFrame = CGRectMake(0, 0, fromView.frame.width/2, fromView.frame.height)
+            var snapshotFrame = CGRect(x: 0, y: 0, width: (fromView.frame.width)/2, height: (fromView.frame.height))
             
-            let leftSnapshot = toView.resizableSnapshotViewFromRect(snapshotFrame, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
-            leftSnapshot.dc_x = -leftSnapshot.dc_width
-            leftSnapshot.dc_y = toView.dc_y
+            let leftSnapshot = toView.resizableSnapshotView(from: snapshotFrame, afterScreenUpdates: true, withCapInsets: UIEdgeInsets.zero)!
+            leftSnapshot.dc_x = -(leftSnapshot.dc_width)
+            leftSnapshot.dc_y = (toView.dc_y)
             
             
-            snapshotFrame.origin.x = fromView.frame.width/2
-            let rightSnapshot = toView.resizableSnapshotViewFromRect(snapshotFrame, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
+            snapshotFrame.origin.x = (fromView.frame.width)/2
+            let rightSnapshot = toView.resizableSnapshotView(from: snapshotFrame, afterScreenUpdates: true, withCapInsets: UIEdgeInsets.zero)!
             rightSnapshot.dc_x = containerView.dc_width
-            rightSnapshot.dc_y = toView.dc_y
+            rightSnapshot.dc_y = (toView.dc_y)
             
-            let fromViewSnapshot = fromView.snapshotViewAfterScreenUpdates(false)
-            fromViewSnapshot.frame = fromView.frame
-            fromViewSnapshot.backgroundColor = UIColor.whiteColor()
+            let fromViewSnapshot = fromView.snapshotView(afterScreenUpdates: false)!
+            fromViewSnapshot.frame = (fromView.frame)
+            fromViewSnapshot.backgroundColor = UIColor.white
             
 
             fromView.removeFromSuperview()
@@ -100,10 +99,10 @@ public class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
             containerView.addSubview(leftSnapshot)
             containerView.addSubview(rightSnapshot)
             
-            UIView.animateWithDuration(animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
                 leftSnapshot.dc_x = 0
                 rightSnapshot.dc_x = containerView.dc_width/2
-                fromViewSnapshot.transform = CGAffineTransformMakeScale(0.8, 0.8)
+                fromViewSnapshot.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
                 
             }, completion: { (finished) -> Void in
                 blankView.removeFromSuperview()
@@ -119,14 +118,14 @@ public class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
         
     }
     
-    override public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    override open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         
-        var duration:NSTimeInterval = 0
+        var duration:TimeInterval = 0
         
         switch transitionType {
-        case .Appear:
+        case .appear:
             duration = durationAppearing
-        case .Dissappear:
+        case .dissappear:
             duration = durationDissappearing
         }
         return duration

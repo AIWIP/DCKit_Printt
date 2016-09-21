@@ -11,7 +11,7 @@ import UIKit
 public extension UIDevice {
     
     public var dc_isIpad:Bool {
-        if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
             return true
         } else {
             return false
@@ -19,7 +19,7 @@ public extension UIDevice {
     }
     
     public var dc_isIphone4OrLess:Bool {
-        let screenSize = UIScreen.mainScreen().bounds.size
+        let screenSize = UIScreen.main.bounds.size
         
         let height = max(screenSize.width, screenSize.height)
         
@@ -30,7 +30,7 @@ public extension UIDevice {
     }
     
     public var dc_isIphone5OrIpodTouch:Bool {
-        let screenSize = UIScreen.mainScreen().bounds.size
+        let screenSize = UIScreen.main.bounds.size
         
         let height = max(screenSize.width, screenSize.height)
         
@@ -42,7 +42,7 @@ public extension UIDevice {
     
     
     public var dc_isIphone6:Bool {
-        let screenSize = UIScreen.mainScreen().bounds.size
+        let screenSize = UIScreen.main.bounds.size
         
         let height = max(screenSize.width, screenSize.height)
         
@@ -53,7 +53,7 @@ public extension UIDevice {
     }
     
     public var dc_isIphone6OrNewer:Bool {
-        let screenSize = UIScreen.mainScreen().bounds.size
+        let screenSize = UIScreen.main.bounds.size
         
         let height = max(screenSize.width, screenSize.height)
         
@@ -64,7 +64,7 @@ public extension UIDevice {
     }
     
     public var dc_isIphone6P:Bool {
-        let screenSize = UIScreen.mainScreen().bounds.size
+        let screenSize = UIScreen.main.bounds.size
         
         let height = max(screenSize.width, screenSize.height)
         

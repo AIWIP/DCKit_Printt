@@ -11,7 +11,6 @@
 		006E79911BCD519100F86EB1 /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E79901BCD519100F86EB1 /* NSDateTests.swift */; };
 		006E79931BCD531700F86EB1 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E79921BCD531700F86EB1 /* ArrayTests.swift */; };
 		7D12BEAC1B9894E600069310 /* DCKitColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D12BEAB1B9894E600069310 /* DCKitColorTests.swift */; };
-		7D28804F1BE36B1300A5A336 /* NSDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D28804E1BE36B1300A5A336 /* NSDate+Comparable.swift */; };
 		7D2880511BE36B8000A5A336 /* NSDateComparableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2880501BE36B8000A5A336 /* NSDateComparableTests.swift */; };
 		7D8610311B95AC720016FA87 /* DCKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D8610301B95AC720016FA87 /* DCKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D8610371B95AC720016FA87 /* DCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D86102B1B95AC720016FA87 /* DCKit.framework */; };
@@ -64,7 +63,6 @@
 		436E104F9D51100F7E5B0D1C /* Pods-DCKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCKit/Pods-DCKit.debug.xcconfig"; sourceTree = "<group>"; };
 		6CDC2FFA5C4EFCB976F525CC /* Pods_DCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D12BEAB1B9894E600069310 /* DCKitColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCKitColorTests.swift; sourceTree = "<group>"; };
-		7D28804E1BE36B1300A5A336 /* NSDate+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparable.swift"; sourceTree = "<group>"; };
 		7D2880501BE36B8000A5A336 /* NSDateComparableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComparableTests.swift; sourceTree = "<group>"; };
 		7D86102B1B95AC720016FA87 /* DCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D86102F1B95AC720016FA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 				7D8610551B95B1A80016FA87 /* UIDevice+DC.swift */,
 				7D8610591B95BA810016FA87 /* DCFoundation.swift */,
 				7D86106D1B95C17D0016FA87 /* NSDate+DCExtension.swift */,
-				7D28804E1BE36B1300A5A336 /* NSDate+Comparable.swift */,
 				7D86104D1B95AE070016FA87 /* UIViewController+ChildVC.swift */,
 				7D8610651B95BF260016FA87 /* UIResponder+KeyboardCache.swift */,
 				7D86106F1B95C2490016FA87 /* DCRandomNumber.swift */,
@@ -298,9 +295,11 @@
 				TargetAttributes = {
 					7D86102A1B95AC720016FA87 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 					};
 					7D8610351B95AC720016FA87 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -351,7 +350,6 @@
 				7D8610561B95B1A80016FA87 /* UIDevice+DC.swift in Sources */,
 				7D86106E1B95C17D0016FA87 /* NSDate+DCExtension.swift in Sources */,
 				CFD076EE1B9D795E00FE020E /* DCVCTransitionBase.swift in Sources */,
-				7D28804F1BE36B1300A5A336 /* NSDate+Comparable.swift in Sources */,
 				7D8610601B95BC810016FA87 /* NSString+EmailValidation.m in Sources */,
 				7D8610721B95C6320016FA87 /* UIView+DCFrame.swift in Sources */,
 				7D8610661B95BF260016FA87 /* UIResponder+KeyboardCache.swift in Sources */,
@@ -504,6 +502,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -521,6 +520,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -538,6 +538,7 @@
 				INFOPLIST_FILE = DCKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -551,6 +552,7 @@
 				INFOPLIST_FILE = DCKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
