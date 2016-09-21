@@ -36,8 +36,8 @@ class DevicesTest: XCTestCase {
         default:
             XCTAssert(false, "Failed to determine device")
         }
-        
-        Date().dc_normalizedDate()
+    
+        NSDate().dc_normalizedDate()
     }
 
     
