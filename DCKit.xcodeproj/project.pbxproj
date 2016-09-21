@@ -168,6 +168,7 @@
 				7D8610551B95B1A80016FA87 /* UIDevice+DC.swift */,
 				7D8610591B95BA810016FA87 /* DCFoundation.swift */,
 				7D86106D1B95C17D0016FA87 /* NSDate+DCExtension.swift */,
+				7DB612D71D92DDEC00AF862A /* NSDate+Comparable.swift */,
 				7D86104D1B95AE070016FA87 /* UIViewController+ChildVC.swift */,
 				7D8610651B95BF260016FA87 /* UIResponder+KeyboardCache.swift */,
 				7D86106F1B95C2490016FA87 /* DCRandomNumber.swift */,
@@ -184,7 +185,6 @@
 				CF1DA2961BBED4190033D7B7 /* NSURLRequest+DebugPrint.swift */,
 				CF1DA2971BBED4190033D7B7 /* NSHTTPURLResponse+DebugPrint.swift */,
 				7D86102E1B95AC720016FA87 /* Supporting Files */,
-				7DB612D71D92DDEC00AF862A /* NSDate+Comparable.swift */,
 			);
 			path = DCKit;
 			sourceTree = "<group>";
