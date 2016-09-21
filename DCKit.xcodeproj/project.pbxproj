@@ -34,6 +34,7 @@
 		7D8BD7E61B9F670100FA73AE /* UIViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8BD7E51B9F670100FA73AE /* UIViewTests.swift */; };
 		7DA8B0241B9986B600D952A2 /* String+DCFontHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8B0231B9986B600D952A2 /* String+DCFontHeight.swift */; };
 		7DA8B0261B9986DB00D952A2 /* NSString+DCFontHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8B0251B9986DB00D952A2 /* NSString+DCFontHeight.swift */; };
+		7DB612D81D92DDEC00AF862A /* NSDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB612D71D92DDEC00AF862A /* NSDate+Comparable.swift */; };
 		7DB899C01B95EAEA00828DDD /* DevicesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB899BF1B95EAEA00828DDD /* DevicesTest.swift */; };
 		CF1DA2981BBED4190033D7B7 /* NSURLRequest+DebugPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DA2961BBED4190033D7B7 /* NSURLRequest+DebugPrint.swift */; };
 		CF1DA2991BBED4190033D7B7 /* NSHTTPURLResponse+DebugPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DA2971BBED4190033D7B7 /* NSHTTPURLResponse+DebugPrint.swift */; };
@@ -89,6 +90,7 @@
 		7D8BD7E51B9F670100FA73AE /* UIViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewTests.swift; sourceTree = "<group>"; };
 		7DA8B0231B9986B600D952A2 /* String+DCFontHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+DCFontHeight.swift"; sourceTree = "<group>"; };
 		7DA8B0251B9986DB00D952A2 /* NSString+DCFontHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+DCFontHeight.swift"; sourceTree = "<group>"; };
+		7DB612D71D92DDEC00AF862A /* NSDate+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparable.swift"; sourceTree = "<group>"; };
 		7DB899BF1B95EAEA00828DDD /* DevicesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesTest.swift; sourceTree = "<group>"; };
 		CF1DA2961BBED4190033D7B7 /* NSURLRequest+DebugPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+DebugPrint.swift"; sourceTree = "<group>"; };
 		CF1DA2971BBED4190033D7B7 /* NSHTTPURLResponse+DebugPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSHTTPURLResponse+DebugPrint.swift"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				CF1DA2961BBED4190033D7B7 /* NSURLRequest+DebugPrint.swift */,
 				CF1DA2971BBED4190033D7B7 /* NSHTTPURLResponse+DebugPrint.swift */,
 				7D86102E1B95AC720016FA87 /* Supporting Files */,
+				7DB612D71D92DDEC00AF862A /* NSDate+Comparable.swift */,
 			);
 			path = DCKit;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				7D8610561B95B1A80016FA87 /* UIDevice+DC.swift in Sources */,
 				7D86106E1B95C17D0016FA87 /* NSDate+DCExtension.swift in Sources */,
 				CFD076EE1B9D795E00FE020E /* DCVCTransitionBase.swift in Sources */,
+				7DB612D81D92DDEC00AF862A /* NSDate+Comparable.swift in Sources */,
 				7D8610601B95BC810016FA87 /* NSString+EmailValidation.m in Sources */,
 				7D8610721B95C6320016FA87 /* UIView+DCFrame.swift in Sources */,
 				7D8610661B95BF260016FA87 /* UIResponder+KeyboardCache.swift in Sources */,
