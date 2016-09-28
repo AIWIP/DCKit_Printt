@@ -41,7 +41,7 @@ open class DCVCTransitionModal: DCVCTransitionBase {
             containerView.addSubview(fromViewSnapshot)
             containerView.addSubview(toView)
             
-            toView.frame.offsetBy(dx: 0, dy: containerView.frame.height)
+            toView.frame = toView.frame.offsetBy(dx: 0, dy: containerView.frame.height)
             
             UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
                 
