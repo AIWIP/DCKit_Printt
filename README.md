@@ -1,3 +1,3 @@
 Test description.
 
-It's *bold*
+It's **bold**
