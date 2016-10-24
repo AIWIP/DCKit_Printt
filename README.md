@@ -23,7 +23,7 @@ The master branch is written for Swift 2.2, with branches for Swift 2.3 and 3.0.
 
 The suggested way to integrate DCKit to your project is using Cocoapods. It is not a public Cocoapod (please note that there is a public cocoapod with the same name), so please link to it in Your Podfile using:
 
-`pod 'DCKit', :git => 'https://bitbucket.org/decodehq/dckit.git', :branch => 'maste`' 
+`pod 'DCKit', :git => 'https://bitbucket.org/decodehq/dckit.git', :branch => 'maste'` 
 
 for Swift 2.2.
 
