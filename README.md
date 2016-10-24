@@ -2,7 +2,7 @@
 
 ### Summary ###
 
-Our internal set of utilities and components that makes development faster and easier.
+Our set of utilities and components developed by DECODE that makes development faster and easier.
 
 It is a collection of methods and extensions that replace the longer implementations you would otherwise need to use, including UIColor hex converters, UIView frame manipulations, adding/removing of child View controllers, a great range of NSDate extensions and more.
 
