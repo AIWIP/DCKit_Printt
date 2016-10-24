@@ -25,9 +25,9 @@ The suggested way to integrate DCKit to your project is using Cocoapods. It is n
 
 `pod 'DCKit', :git => 'https://bitbucket.org/decodehq/dckit.git', :branch => 'maste`' 
 
-for swift 2.2.
+for Swift 2.2.
 
-For swift 2.3 or 3.0, please target the following branches:
+For Swift 2.3 or 3.0, please target the following branches:
 
 `:branch => 'swift-2.3’`
 `:branch => 'swift-3.0'`
