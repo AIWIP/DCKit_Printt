@@ -10,7 +10,7 @@ DCKit also includes:
 
 * __DCRevealVC__: A controller for a vertical sliding drawer menu.
 
-* VC __Custom Transitioning__: A set of custom view controller transitions.
+* __VC Custom Transitioning__: A set of custom view controller transitions.
 
 DCKit is fully unit tested.
 
