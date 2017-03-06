@@ -9,14 +9,14 @@
 import UIKit
 
 public enum DCVCTransitionType {
-    case Appear
-    case Dissappear
+    case appear
+    case dissappear
 }
 
 
-public class DCVCTransitionBase:NSObject, UIViewControllerAnimatedTransitioning {
+open class DCVCTransitionBase:NSObject, UIViewControllerAnimatedTransitioning {
     
-    public private(set) var transitionType:DCVCTransitionType
+    open fileprivate(set) var transitionType:DCVCTransitionType
     
     public init(transitionType:DCVCTransitionType) {
         self.transitionType = transitionType
@@ -25,12 +25,12 @@ public class DCVCTransitionBase:NSObject, UIViewControllerAnimatedTransitioning 
     
     
     
-    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         assert(true, "animateTransition: should be handled by subclass of BaseAnimation");
 
     }
     
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         
         assert(true, "animateTransition: should be handled by subclass of BaseAnimation");
         

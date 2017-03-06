@@ -15,7 +15,7 @@ public extension UIColor {
         self.init(red: ((CGFloat)((dc_hexValue & 0xFF0000) >> 16))/255.0, green: ((CGFloat)((dc_hexValue & 0xFF00) >> 8))/255.0, blue: ((CGFloat)(dc_hexValue & 0xFF))/255.0, alpha: 1)
     }
     
-    public class func dc_colorFromHexValue(hexValue:UInt64) -> UIColor {
+    public class func dc_colorFromHexValue(_ hexValue:UInt64) -> UIColor {
         let color = UIColor(red: ((CGFloat)((hexValue & 0xFF0000) >> 16))/255.0, green: ((CGFloat)((hexValue & 0xFF00) >> 8))/255.0, blue: ((CGFloat)(hexValue & 0xFF))/255.0, alpha: 1)
         return color;
     }

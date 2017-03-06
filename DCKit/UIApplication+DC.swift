@@ -12,7 +12,7 @@ import Foundation
 public extension UIApplication {
     
     public var statusBarHeight:CGFloat {
-        return  UIApplication.sharedApplication().statusBarFrame.height
+        return  UIApplication.shared.statusBarFrame.height
     }
     
 }

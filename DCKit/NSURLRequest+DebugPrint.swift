@@ -8,24 +8,24 @@
 
 import Foundation
 
-public extension NSURLRequest {
+public extension URLRequest {
     
-    public func dc_debugDescription(showHeader showHeader:Bool, showBody:Bool) -> String {
+    public func dc_debugDescription(showHeader:Bool, showBody:Bool) -> String {
         
         
-        let urlInfo = "URL: (" + HTTPMethod! + ") " + URL!.absoluteString + "\n"
+        let urlInfo = "URL: (" + httpMethod! + ") " + url!.absoluteString + "\n"
         
         var info = "\n\n****** URL REQUEST ********\n" + urlInfo
         
-        if let headerFields = allHTTPHeaderFields?.description where showHeader == true {
+        if let headerFields = allHTTPHeaderFields?.description , showHeader == true {
             let header = "Headers:\n" + headerFields
             info = info + header + "\n"
         }
         
         
         
-        if let body = HTTPBody where showBody == true{
-            let bodyString = NSString(data: body, encoding: NSUTF8StringEncoding) as! String
+        if let body = httpBody , showBody == true{
+            let bodyString = NSString(data: body, encoding: String.Encoding.utf8.rawValue) as! String
             let bodyInfo = "Body:\n" + bodyString
             info = info + bodyInfo
         }

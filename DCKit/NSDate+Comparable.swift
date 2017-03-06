@@ -15,9 +15,9 @@ extension NSDate: Comparable {
 }
 
 public func < (lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.compare(rhs) == .OrderedAscending
+    return lhs.compare(rhs as Date) == .orderedAscending
 }
 
 public func == (lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.compare(rhs) == .OrderedSame
+    return lhs.compare(rhs as Date) == .orderedSame
 }

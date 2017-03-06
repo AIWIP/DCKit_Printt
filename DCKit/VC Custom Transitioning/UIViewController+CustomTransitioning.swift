@@ -45,7 +45,7 @@ public extension UIViewController {
         }
     }
     
-    private func getCustomTransitionHelper() -> DCCustomTransitioningHelper {
+    fileprivate func getCustomTransitionHelper() -> DCCustomTransitioningHelper {
         
         var helper = objc_getAssociatedObject(self, &kCustomTransitioningHelperID) as? DCCustomTransitioningHelper
         

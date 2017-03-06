@@ -12,45 +12,45 @@ extension UIViewController {
     
     public var dc_revealVC:DCRevealVC? {
         
-        var parentVC:UIViewController? = self.parentViewController
+        var parentVC:UIViewController? = self.parent
         
         while (parentVC != nil) {
-            if parentVC!.isKindOfClass(DCRevealVC.self) {
+            if parentVC!.isKind(of: DCRevealVC.self) {
                 return parentVC as? DCRevealVC
             }
-            parentVC = parentVC?.parentViewController
+            parentVC = parentVC?.parent
         }
         return nil
     }
 }
 
 
-public class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
+open class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
     
-    public var menuWidth:CGFloat {return UIDevice.currentDevice().dc_isIpad ? 120 : 160 }
+    open var menuWidth:CGFloat {return UIDevice.current.dc_isIpad ? 120 : 160 }
     
-    public var panGestureRecognizer:UIPanGestureRecognizer!
-    private lazy var overlayView:UIView = {
+    open var panGestureRecognizer:UIPanGestureRecognizer!
+    fileprivate lazy var overlayView:UIView = {
         let overlayView = UIView()
-        let tapGesture = UITapGestureRecognizer(target: self, action: Selector("concealMenuAnimated"))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DCRevealVC.concealMenuAnimated))
         overlayView.addGestureRecognizer(tapGesture)
         //        overlayView.userInteractionEnabled = false
         //        overlayView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.2)
         return overlayView
     }()
     
-    public var menuNavigationController       :UINavigationController!
-    public var contentNavigationController    :UINavigationController!
+    open var menuNavigationController       :UINavigationController!
+    open var contentNavigationController    :UINavigationController!
     
-    public var contentVC:UIViewController? {return contentNavigationController.topViewController}
-    public var menuVC:UIViewController?    {return menuNavigationController.topViewController}
+    open var contentVC:UIViewController? {return contentNavigationController.topViewController}
+    open var menuVC:UIViewController?    {return menuNavigationController.topViewController}
     
-    public var showMenuEnabled:Bool {
+    open var showMenuEnabled:Bool {
         get{
-            return panGestureRecognizer.enabled
+            return panGestureRecognizer.isEnabled
         }
         set{
-            panGestureRecognizer.enabled = newValue
+            panGestureRecognizer.isEnabled = newValue
         }
     }
     
@@ -63,7 +63,7 @@ public class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
         contentNavigationController = UINavigationController()
         menuNavigationController = UINavigationController()
         
-        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "panGestureRecognizeAction:")
+        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(DCRevealVC.panGestureRecognizeAction(_:)))
         panGestureRecognizer.delegate = self
         
     }
@@ -73,7 +73,7 @@ public class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         dc_attachChildVC(menuNavigationController)
@@ -85,13 +85,13 @@ public class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.setNavigationBarHidden(true, animated: true)
-        menuNavigationController.view.frame = CGRectMake(0, 0, menuWidth, self.view.frame.height)
+        menuNavigationController.view.frame = CGRect(x: 0, y: 0, width: menuWidth, height: self.view.frame.height)
     }
     
-    public func setContentVC(contentVC:UIViewController, animated:Bool) {
+    open func setContentVC(_ contentVC:UIViewController, animated:Bool) {
         
         if self.contentVC === contentVC {
             return
@@ -99,7 +99,7 @@ public class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
         self.contentNavigationController.setViewControllers([contentVC], animated: false)
     }
     
-    public func setMenuVC(menuVC:UIViewController, animated:Bool) {
+    open func setMenuVC(_ menuVC:UIViewController, animated:Bool) {
         
         if self.menuVC === menuVC {
             return
@@ -108,7 +108,7 @@ public class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     
-    public func toggleMenuAnimated() {
+    open func toggleMenuAnimated() {
         
         if contentNavigationController.view.dc_x > 0 {
             concealMenuAnimated()
@@ -117,7 +117,7 @@ public class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    public func revealMenuAnimated() {
+    open func revealMenuAnimated() {
         
         overlayView.frame = contentNavigationController!.view.bounds
         contentNavigationController!.view.addSubview(overlayView)
@@ -126,17 +126,17 @@ public class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
         //        let frame = overlayView.frame
         
         
-        UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
             self.contentNavigationController.view.dc_x = self.menuNavigationController.view.dc_xRight
             }) { (finished) -> Void in
         }
     }
     
-    public func concealMenuAnimated() {
+    open func concealMenuAnimated() {
         
         overlayView.removeFromSuperview()
         
-        UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
             self.contentNavigationController.view.dc_x = 0
             }) { (finished) -> Void in
         }
@@ -144,30 +144,30 @@ public class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK: PanGestureRecognizer
     
-    private var initialPanLocation:CGPoint!
-    private var initialFrontViewLocation:CGPoint!
+    fileprivate var initialPanLocation:CGPoint!
+    fileprivate var initialFrontViewLocation:CGPoint!
     
-    @objc private func panGestureRecognizeAction(sender:UIPanGestureRecognizer) {
+    @objc fileprivate func panGestureRecognizeAction(_ sender:UIPanGestureRecognizer) {
         
         switch sender.state {
-        case .Began:
+        case .began:
             
-            initialPanLocation = sender.locationInView(self.view)
+            initialPanLocation = sender.location(in: self.view)
             initialFrontViewLocation = contentNavigationController.view.frame.origin
             
-        case .Changed:
+        case .changed:
             
             
-            let currentTouchLocation = sender.locationInView(self.view)
+            let currentTouchLocation = sender.location(in: self.view)
             
             let differenceX = currentTouchLocation.x - initialPanLocation.x
             
-            var newOrigin = initialFrontViewLocation
+            var newOrigin = initialFrontViewLocation!
             newOrigin.x += differenceX
             
-            if newOrigin.x <= 0 {
+            if newOrigin.x <= CGFloat(0.0) {
                 newOrigin.x = 0
-            }else if newOrigin.x >= menuWidth {
+            }else if (newOrigin.x) >= menuWidth {
                 newOrigin.x = menuWidth
             }
             
@@ -189,21 +189,21 @@ public class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-    public func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         
         if contentNavigationController.viewControllers.count > 1 {
             return false
         }
         
         let frontViewOrigin = contentNavigationController.view.frame.origin
-        let location = gestureRecognizer.locationInView(self.contentNavigationController.view)
+        let location = gestureRecognizer.location(in: self.contentNavigationController.view)
         if location.x < 50 || frontViewOrigin.x > 0{
             return true
         }
         return false
     }
     
-    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     

@@ -11,7 +11,7 @@ import Foundation
 public extension String {
     
     public func dc_height(usingFont font:UIFont, constrainedToWidth width:CGFloat) -> CGFloat {
-        let converterString:NSString = self
+        let converterString:NSString = self as NSString
         let height = converterString.dc_height(usingFont: font, constrainedToWidth: width)
         return height
     }

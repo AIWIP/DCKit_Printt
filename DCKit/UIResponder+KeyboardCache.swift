@@ -11,7 +11,7 @@ import UIKit
 public extension UIResponder {
     
     
-    private static var hasAlreadyCachedKeyboard = false
+    fileprivate static var hasAlreadyCachedKeyboard = false
     
     public class func dc_cacheKeyboard() {
         
@@ -19,12 +19,12 @@ public extension UIResponder {
     }
     
     
-    public class func dc_cacheKeyboard(onNextRunloop onNextRunloop:Bool) {
+    public class func dc_cacheKeyboard(onNextRunloop:Bool) {
         
         if hasAlreadyCachedKeyboard == false {
             hasAlreadyCachedKeyboard = true
             if onNextRunloop {
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0), dispatch_get_main_queue(), { () -> Void in
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(0) / Double(NSEC_PER_SEC), execute: { () -> Void in
                     self._cacheKeyboard()
                 })
             }else{
@@ -39,7 +39,7 @@ public extension UIResponder {
     class func _cacheKeyboard() {
         
         let field = UITextField()
-        UIApplication.sharedApplication().windows.last?.addSubview(field)
+        UIApplication.shared.windows.last?.addSubview(field)
         field.becomeFirstResponder()
         field.resignFirstResponder()
         field.removeFromSuperview()

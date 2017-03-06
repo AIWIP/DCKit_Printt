@@ -11,15 +11,15 @@ import Foundation
 public extension UIDevice {
     
     public var dc_deviceIsIphone : Bool {
-        return UIDevice.currentDevice().model.hasPrefix("iPhone")
+        return UIDevice.current.model.hasPrefix("iPhone")
     }
     
     public var dc_deviceIsIpod : Bool {
-        return UIDevice.currentDevice().model.hasPrefix("iPod")
+        return UIDevice.current.model.hasPrefix("iPod")
     }
 
     public var dc_deviceIsIpad : Bool {
-        return UIDevice.currentDevice().model.hasPrefix("iPad")
+        return UIDevice.current.model.hasPrefix("iPad")
     }
 
 }
