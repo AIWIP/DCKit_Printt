@@ -16,7 +16,7 @@ DCKit is fully unit tested.
 
 ### Version ###
 
-The master branch is written for Swift 2.2, with branches for Swift 2.3 and 3.0. 
+The master branch is written for Swift 3.0, with branch for Swift 2.3. 
 
 
 ### How do I get set up? ###
