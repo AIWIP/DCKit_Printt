@@ -27,10 +27,9 @@ The suggested way to integrate DCKit to your project is using Cocoapods. It is n
 
 for Swift 2.2.
 
-For Swift 2.3 or 3.0, please target the following branches:
+For Swift 2.3, please target the following branch:
 
 `:branch => 'swift-2.3’`
-`:branch => 'swift-3.0'`
 
 Alternatively, You can just clone the repository and drag` DCKit.xcodepr`oj into your project and link against the `DCKit.framework` in target dependencies, or just drag&drop individual `.swift` files into Your project.
 
