@@ -17,21 +17,21 @@ public extension UIViewController {
     
     public func dc_attachChildVC(_ childVC:UIViewController, parentView:UIView) {
         
-        addChildViewController(childVC)
+        addChild(childVC)
         parentView.addSubview(childVC.view)
-        childVC.didMove(toParentViewController: self)
+        childVC.didMove(toParent: self)
     }
     
     public func dc_attachChildVCWithoutAddingToViewHierarchy(_ childVC:UIViewController) {
-        addChildViewController(childVC)
-        childVC.didMove(toParentViewController: self)
+        addChild(childVC)
+        childVC.didMove(toParent: self)
     }
     
     public func dc_detachVCFromParentVC() {
     
         view.removeFromSuperview()
-        removeFromParentViewController()
-        didMove(toParentViewController: nil)
+        removeFromParent()
+        didMove(toParent: nil)
         
         
     }
@@ -52,7 +52,7 @@ public extension UIViewController {
         
         prepareLayoutBlock?()
         
-        UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: CGFloat(springValue), initialSpringVelocity: CGFloat(velocity), options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+        UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: CGFloat(springValue), initialSpringVelocity: CGFloat(velocity), options: UIView.AnimationOptions.beginFromCurrentState, animations: { () -> Void in
             animationBlock(fromViewSnaphot!, toView!)
         }) { (finished) -> Void in
             fromVC.endAppearanceTransition()

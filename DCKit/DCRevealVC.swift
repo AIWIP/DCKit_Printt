@@ -126,17 +126,17 @@ open class DCRevealVC: UIViewController, UIGestureRecognizerDelegate {
         //        let frame = overlayView.frame
         
         
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIView.AnimationOptions.curveEaseIn, animations: { () -> Void in
             self.contentNavigationController.view.dc_x = self.menuNavigationController.view.dc_xRight
             }) { (finished) -> Void in
         }
     }
     
-    open func concealMenuAnimated() {
+    @objc open func concealMenuAnimated() {
         
         overlayView.removeFromSuperview()
         
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIView.AnimationOptions.curveEaseIn, animations: { () -> Void in
             self.contentNavigationController.view.dc_x = 0
             }) { (finished) -> Void in
         }

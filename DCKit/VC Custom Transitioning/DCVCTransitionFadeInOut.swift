@@ -31,10 +31,10 @@ open class DCVCTransitionFadeInOut: DCVCTransitionBase {
 
         toView.alpha = 0
         
-        UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+        UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIView.AnimationOptions.beginFromCurrentState, animations: { () -> Void in
             fromView.alpha = 0
         },completion: { (finished) -> Void in
-            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: self.springDamping, initialSpringVelocity: self.springVelocity, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: self.springDamping, initialSpringVelocity: self.springVelocity, options: UIView.AnimationOptions.beginFromCurrentState, animations: { () -> Void in
                 toView.alpha = 1
             },completion: { (finished) -> Void in
                 fromView.removeFromSuperview()

@@ -48,7 +48,7 @@ open class DCVCTransitionModalScaling: DCVCTransitionBase {
 
             toViewSnapshot.frame = toViewSnapshot.frame.offsetBy(dx: 0, dy: containerView.frame.height)
             
-            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIView.AnimationOptions.beginFromCurrentState, animations: { () -> Void in
                 
                 toViewSnapshot.frame = toViewFinalFrame
                 fromViewSnapshot.alpha = 0
@@ -71,7 +71,7 @@ open class DCVCTransitionModalScaling: DCVCTransitionBase {
                 toViewSnapshot.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
             }
             
-            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
+            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIView.AnimationOptions.curveEaseOut, animations: { () -> Void in
                 
                 fromViewSnapshot.frame = fromViewSnapshot.frame.offsetBy(dx: 0, dy: containerView.frame.height)
                 toViewSnapshot.alpha = 1

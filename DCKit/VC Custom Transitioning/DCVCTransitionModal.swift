@@ -43,7 +43,7 @@ open class DCVCTransitionModal: DCVCTransitionBase {
             
             toView.frame = toView.frame.offsetBy(dx: 0, dy: containerView.frame.height)
             
-            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIView.AnimationOptions.beginFromCurrentState, animations: { () -> Void in
                 
                 toView.frame = toViewFinalFrame
                 
@@ -60,7 +60,7 @@ open class DCVCTransitionModal: DCVCTransitionBase {
             
             let finalAnimationFrame = fromViewSnapshot.frame.offsetBy(dx: 0, dy: containerView.frame.height)
             
-            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIView.AnimationOptions.beginFromCurrentState, animations: { () -> Void in
                 
                 fromViewSnapshot.frame = finalAnimationFrame
                 

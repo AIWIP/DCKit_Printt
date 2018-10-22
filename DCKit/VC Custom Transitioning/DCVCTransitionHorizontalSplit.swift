@@ -56,7 +56,7 @@ open class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
             containerView.addSubview(leftSnapshot)
             containerView.addSubview(rightSnapshot)
             
-            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIView.AnimationOptions.beginFromCurrentState, animations: { () -> Void in
                 leftSnapshot.dc_x -= leftSnapshot.dc_width
                 rightSnapshot.dc_x += rightSnapshot.dc_width
                 toView.transform = CGAffineTransform.identity
@@ -99,7 +99,7 @@ open class DCVCTransitionHorizontalSplit: DCVCTransitionBase {
             containerView.addSubview(leftSnapshot)
             containerView.addSubview(rightSnapshot)
             
-            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: springDamping, initialSpringVelocity: springVelocity, options: UIView.AnimationOptions.beginFromCurrentState, animations: { () -> Void in
                 leftSnapshot.dc_x = 0
                 rightSnapshot.dc_x = containerView.dc_width/2
                 fromViewSnapshot.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
